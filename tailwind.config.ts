@@ -13,7 +13,23 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['"Noto Sans JP"', 'system-ui', 'sans-serif'],
+        serif: ['"Noto Serif JP"', 'serif'],
+      },
+      backgroundImage: {
+        'gradient-sakura': 'var(--gradient-sakura)',
+        'gradient-warm': 'var(--gradient-warm)',
+      },
+      boxShadow: {
+        soft: 'var(--shadow-soft)',
+        card: 'var(--shadow-card)',
+      },
       colors: {
+        sumi: "hsl(var(--sumi))",
+        sakura: "hsl(var(--sakura))",
+        kinari: "hsl(var(--kinari))",
+        washi: "hsl(var(--washi))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -64,26 +80,22 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
-        "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
-        },
-        "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+        "accordion-down": { from: { height: "0" }, to: { height: "var(--radix-accordion-content-height)" } },
+        "accordion-up": { from: { height: "var(--radix-accordion-content-height)" }, to: { height: "0" } },
+        "fade-in": { "0%": { opacity: "0", transform: "translateY(16px)" }, "100%": { opacity: "1", transform: "translateY(0)" } },
+        "fade-in-slow": { "0%": { opacity: "0" }, "100%": { opacity: "1" } },
+        "petal-fall": {
+          "0%": { transform: "translateY(-10vh) rotate(0deg)", opacity: "0" },
+          "10%": { opacity: "0.7" },
+          "100%": { transform: "translateY(110vh) rotate(360deg)", opacity: "0" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fade-in 0.7s ease-out forwards",
+        "fade-in-slow": "fade-in-slow 1.2s ease-out forwards",
+        "petal-fall": "petal-fall linear infinite",
       },
     },
   },
