@@ -27,6 +27,7 @@ import { supabase } from "@/integrations/supabase/client";
 import sensei from "@/assets/sensei.jpg";
 import wechatQr from "@/assets/wechat-qr.jpg";
 import whatsappQr from "@/assets/whatsapp-qr.jpg";
+import wendyLogo from "@/assets/wendy-logo.png";
 
 const credentialIcons = [Award, GraduationCap, Globe2, Star];
 const featureIcons = [BookOpen, Mic, Sparkles];
@@ -76,7 +77,7 @@ const Index = () => {
       {/* Nav */}
       <header className="relative z-10 mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
         <a href="#" className="flex items-center gap-2">
-          <span className="ink-stamp h-9 w-9 rounded-md text-lg" aria-label="Wendy">😊</span>
+          <img src={wendyLogo} alt="Wendy logo" width={36} height={36} className="h-9 w-9 rounded-md object-contain" />
           <span className="font-serif text-lg font-bold tracking-wider">Wendy</span>
         </a>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
@@ -142,7 +143,7 @@ const Index = () => {
                   allowFullScreen
                   className="absolute inset-0 h-full w-full border-0"
                 />
-                <div className="pointer-events-none absolute right-4 top-4 ink-stamp h-12 w-12 rotate-3 rounded text-xl" aria-label="Wendy">😊</div>
+                <img src={wendyLogo} alt="Wendy logo" loading="lazy" width={48} height={48} className="pointer-events-none absolute right-4 top-4 h-12 w-12 rotate-3 rounded object-contain shadow-soft" />
               </div>
               <p className="mt-3 text-center text-xs tracking-widest text-muted-foreground">{t.hero.videoTitle} · {t.hero.videoSub}</p>
             </div>
