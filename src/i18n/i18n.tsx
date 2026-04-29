@@ -12,6 +12,7 @@ type Dict = {
     ctaPrimary: string;
     ctaSecondary: string;
     stat1Label: string;
+    stat1Value: string;
     stat2Label: string;
     videoTitle: string;
     videoSub: string;
@@ -29,6 +30,19 @@ type Dict = {
     title: string;
     subtitle: string;
     items: { jp: string; title: string; desc: string }[];
+  };
+  subjects: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    seniority: string;
+    seniorityValue: string;
+    levelsLabel: string;
+    levels: string[];
+    agesLabel: string;
+    ages: string[];
+    coursesLabel: string;
+    courses: { name: string; desc: string }[];
   };
   path: {
     eyebrow: string;
@@ -69,7 +83,8 @@ const zh: Dict = {
     subtitle: "从五十音到 N1，我陪你走完每一步。\n系统化课程 · 真人纠音 · AI 全天候陪练。",
     ctaPrimary: "预约免费试听",
     ctaSecondary: "查看学习路径",
-    stat1Label: "可用中日英三语教学",
+    stat1Label: "全年龄段学员皆可教学",
+    stat1Value: "全年龄",
     stat2Label: "JLPT 通过率",
     videoTitle: "课程介绍视频",
     videoSub: "90 秒了解教学方法",
@@ -80,7 +95,7 @@ const zh: Dict = {
     title1: "はじめまして,",
     title2: "我是 Wendy 老师",
     bio: "八年专注日语教学，深耕语法体系与口语表达。曾任日企翻译，熟悉商务与生活场景的真实语境。我相信学习语言不只是背单词，而是打开一扇通往文化、电影、文学的门。",
-    credentials: ["JLPT N1 满分认证", "8 年线上线下教学经验", "日本日语教学国家资格证持有者", "累计 2000+ 学员"],
+    credentials: ["JLPT N1 满分认证", "8 年线上线下教学经验", "日本日语教学国家资格证持有者", "可用中 / 日 / 英 三语教学"],
   },
   features: {
     eyebrow: "特色 · 教学方法",
@@ -90,6 +105,25 @@ const zh: Dict = {
       { jp: "文法", title: "互动式语法讲解", desc: "拆解日语句法骨架，结合动画与情景例句，让助词、敬语、时态变得直观可感。" },
       { jp: "発音", title: "地道口语纠音", desc: "一对一录音反馈，针对中国学习者的高低音调与促音难点逐字打磨。" },
       { jp: "練習", title: "丰富的课后练习工具", desc: "配套丰富的课后练习与复习材料，帮助你巩固当天上课的内容。" },
+    ],
+  },
+  subjects: {
+    eyebrow: "授課科目 · 授课科目",
+    title: "我能教授的课程",
+    subtitle: "覆盖从零基础到考试与商务，全年龄段都能找到合适的方向。",
+    seniority: "教龄",
+    seniorityValue: "10 年",
+    levelsLabel: "学生水平",
+    levels: ["初学者", "预备中级", "中级", "中高级", "进阶", "能力", "未指定"],
+    agesLabel: "首选年龄段",
+    ages: ["学生 (17–22)", "成人 (23–40)", "成人 (40+)"],
+    coursesLabel: "课程方向",
+    courses: [
+      { name: "会话日语", desc: "聚焦真实生活场景的自然口语：点餐、问路、与朋友聊天，重点训练听力与发音，让你敢开口、说得地道。" },
+      { name: "初学者日语", desc: "从平假名、片假名到基础句型，配合大量图片与简单例句，帮零基础的你打下扎实的入门地基。" },
+      { name: "JLPT (N5–N1)", desc: "覆盖 N5 到 N1 的词汇、语法与阅读，配合真题训练与听力策略，定位弱项、稳步提分。" },
+      { name: "进阶日语", desc: "新闻阅读、日剧赏析、敬语 (Keigo) 与正式表达，帮助你理解语言背后的文化与思维方式。" },
+      { name: "商务日语", desc: "职场场景实战：电话应对、商务邮件、会议礼仪与角色扮演，让你在日企从容沟通。" },
     ],
   },
   path: {
@@ -138,7 +172,8 @@ const en: Dict = {
     subtitle: "From kana to N1 — I'll walk every step with you.\nStructured curriculum · live coaching · 24/7 AI partner.",
     ctaPrimary: "Book a free trial",
     ctaSecondary: "View roadmap",
-    stat1Label: "Trilingual teaching (CN/JP/EN)",
+    stat1Label: "All ages welcome",
+    stat1Value: "All ages",
     stat2Label: "JLPT pass rate",
     videoTitle: "Course intro video",
     videoSub: "90 seconds about my method",
@@ -149,7 +184,7 @@ const en: Dict = {
     title1: "Nice to meet you,",
     title2: "I'm Wendy Sensei",
     bio: "Eight years devoted to teaching Japanese, with deep focus on grammar systems and spoken expression. Former in-house translator at a Japanese firm. I believe language learning isn't memorising words — it's opening a door to culture, cinema and literature.",
-    credentials: ["JLPT N1 perfect score", "8 years teaching experience", "Certified Japanese-language teacher (Japan national qualification)", "2000+ students taught"],
+    credentials: ["JLPT N1 perfect score", "8 years teaching experience", "Certified Japanese-language teacher (Japan national qualification)", "Teaches in Chinese / Japanese / English"],
   },
   features: {
     eyebrow: "METHOD · TEACHING APPROACH",
@@ -159,6 +194,25 @@ const en: Dict = {
       { jp: "文法", title: "Interactive grammar", desc: "We dissect Japanese sentence structure with animated diagrams and real-life examples — particles, keigo and tenses become intuitive." },
       { jp: "発音", title: "Native-like pronunciation", desc: "Personal voice feedback targeting pitch accent and sokuon — the exact spots non-natives stumble on." },
       { jp: "練習", title: "Rich after-class practice", desc: "Plenty of practice and review materials so you can reinforce what we covered in class the same day." },
+    ],
+  },
+  subjects: {
+    eyebrow: "SUBJECTS · WHAT I TEACH",
+    title: "Courses I can teach",
+    subtitle: "From absolute beginner to JLPT and business — there's a track for every age and goal.",
+    seniority: "Years teaching",
+    seniorityValue: "10 years",
+    levelsLabel: "Student levels",
+    levels: ["Beginner", "Pre-intermediate", "Intermediate", "Upper-intermediate", "Advanced", "Proficient", "Unspecified"],
+    agesLabel: "Preferred age groups",
+    ages: ["Students (17–22)", "Adults (23–40)", "Adults (40+)"],
+    coursesLabel: "Course tracks",
+    courses: [
+      { name: "Conversational Japanese", desc: "Speak naturally in real-life situations — ordering food, asking directions, chatting with friends. Heavy focus on listening and pronunciation so you feel confident with native speakers." },
+      { name: "Beginner Japanese", desc: "Hiragana and Katakana, then simple sentence patterns with lots of pictures and examples — a strong, patient foundation for absolute beginners." },
+      { name: "JLPT (N5–N1)", desc: "Vocabulary, grammar and reading from N5 to N1, with past papers and listening strategies. We pinpoint weak spots and aim for the best score possible." },
+      { name: "Advanced Japanese", desc: "News articles, Japanese TV, Keigo (honorifics) and formal expression — understand the deeper meaning of the language and the culture behind it." },
+      { name: "Business Japanese", desc: "Real workplace skills: phone calls, business email, meeting etiquette and role-play of common scenarios — Japanese you can use at a Japanese company." },
     ],
   },
   path: {
@@ -207,7 +261,8 @@ const ja: Dict = {
     subtitle: "五十音からN1まで、一歩ずつ一緒に歩みます。\n体系的なカリキュラム・ネイティブ発音指導・24時間AIパートナー。",
     ctaPrimary: "無料体験を予約",
     ctaSecondary: "学習プランを見る",
-    stat1Label: "中日英 3言語で指導可能",
+    stat1Label: "全年齢層に対応",
+    stat1Value: "全年齢",
     stat2Label: "JLPT合格率",
     videoTitle: "コース紹介動画",
     videoSub: "90秒で教え方を紹介",
@@ -218,7 +273,7 @@ const ja: Dict = {
     title1: "はじめまして,",
     title2: "Wendy先生です",
     bio: "8年間、日本語教育一筋。文法体系と話し言葉の表現を専門としています。日系企業での翻訳経験もあり、ビジネスから日常まで生きた日本語をお伝えします。言語学習は単語暗記ではなく、文化・映画・文学への扉を開くことだと信じています。",
-    credentials: ["JLPT N1 満点取得", "オンライン・対面 8年指導歴", "日本語教育能力検定 国家資格保持", "受講生 2,000名以上"],
+    credentials: ["JLPT N1 満点取得", "オンライン・対面 8年指導歴", "日本語教育能力検定 国家資格保持", "中国語・日本語・英語の3言語で指導可能"],
   },
   features: {
     eyebrow: "特色 · 教え方",
@@ -228,6 +283,25 @@ const ja: Dict = {
       { jp: "文法", title: "インタラクティブ文法", desc: "文の骨格をアニメと実例で分解。助詞・敬語・時制が直感的に理解できます。" },
       { jp: "発音", title: "ネイティブ発音矯正", desc: "1対1の音声フィードバックで、高低アクセントと促音をピンポイントに矯正。" },
       { jp: "練習", title: "充実した課後練習ツール", desc: "豊富な復習教材で、その日のレッスン内容をしっかり定着させます。" },
+    ],
+  },
+  subjects: {
+    eyebrow: "授業科目 · WHAT I TEACH",
+    title: "対応できるコース",
+    subtitle: "ゼロからの初心者、JLPT、ビジネス日本語まで。年齢を問わず最適なコースが見つかります。",
+    seniority: "指導歴",
+    seniorityValue: "10年",
+    levelsLabel: "対象レベル",
+    levels: ["初級", "準中級", "中級", "中上級", "上級", "熟達", "未指定"],
+    agesLabel: "対象年齢",
+    ages: ["学生 (17–22)", "成人 (23–40)", "成人 (40+)"],
+    coursesLabel: "コース内容",
+    courses: [
+      { name: "会話日本語", desc: "実生活の場面で自然に話せるように指導します。注文・道案内・友人との雑談など、聴解と発音を重視します。" },
+      { name: "初心者向け日本語", desc: "ひらがな・カタカナから簡単な文型まで、絵や例を多用して、ゼロからしっかり基礎を作ります。" },
+      { name: "JLPT (N5–N1)", desc: "N5からN1までの語彙・文法・読解、過去問演習と聴解対策で、弱点を見つけて点数を伸ばします。" },
+      { name: "上級日本語", desc: "ニュース記事・ドラマ・敬語と公式表現を学び、言語の奥にある文化と考え方まで理解します。" },
+      { name: "ビジネス日本語", desc: "電話応対、ビジネスメール、会議マナーをロールプレイで実践。日系企業で使える日本語を身につけます。" },
     ],
   },
   path: {
@@ -276,7 +350,8 @@ const fr: Dict = {
     subtitle: "Des kana au N1 — je vous accompagne à chaque étape.\nCursus structuré · coaching humain · IA disponible 24h/24.",
     ctaPrimary: "Réserver un essai gratuit",
     ctaSecondary: "Voir le parcours",
-    stat1Label: "Enseigne en CN/JP/EN",
+    stat1Label: "Tous âges bienvenus",
+    stat1Value: "Tous âges",
     stat2Label: "Taux de réussite JLPT",
     videoTitle: "Vidéo de présentation",
     videoSub: "90 secondes sur ma méthode",
@@ -287,7 +362,7 @@ const fr: Dict = {
     title1: "Enchantée,",
     title2: "je suis Wendy Sensei",
     bio: "Huit ans d'enseignement du japonais, avec une attention particulière à la grammaire et à l'expression orale. Ancienne traductrice en entreprise japonaise. Apprendre une langue, ce n'est pas mémoriser des mots — c'est ouvrir une porte sur une culture, un cinéma, une littérature.",
-    credentials: ["Score parfait au JLPT N1", "8 ans d'enseignement", "Diplôme d'État japonais d'enseignement du japonais", "Plus de 2 000 élèves"],
+    credentials: ["Score parfait au JLPT N1", "8 ans d'enseignement", "Diplôme d'État japonais d'enseignement du japonais", "Enseigne en chinois / japonais / anglais"],
   },
   features: {
     eyebrow: "MÉTHODE · APPROCHE",
@@ -297,6 +372,25 @@ const fr: Dict = {
       { jp: "文法", title: "Grammaire interactive", desc: "Nous décomposons la structure des phrases avec animations et exemples concrets — particules, keigo et temps deviennent intuitifs." },
       { jp: "発音", title: "Prononciation authentique", desc: "Retours audio personnalisés sur l'accent de hauteur et le sokuon — exactement là où les francophones butent." },
       { jp: "練習", title: "Exercices après-cours riches", desc: "De nombreux supports d'entraînement pour réviser le contenu vu en cours le jour même." },
+    ],
+  },
+  subjects: {
+    eyebrow: "MATIÈRES · CE QUE J'ENSEIGNE",
+    title: "Les cours que je peux donner",
+    subtitle: "Du grand débutant au JLPT et au japonais professionnel — un parcours adapté à chaque âge et chaque objectif.",
+    seniority: "Années d'enseignement",
+    seniorityValue: "10 ans",
+    levelsLabel: "Niveaux des élèves",
+    levels: ["Débutant", "Pré-intermédiaire", "Intermédiaire", "Intermédiaire+", "Avancé", "Maîtrise", "Non précisé"],
+    agesLabel: "Tranches d'âge préférées",
+    ages: ["Étudiants (17–22)", "Adultes (23–40)", "Adultes (40+)"],
+    coursesLabel: "Parcours proposés",
+    courses: [
+      { name: "Japonais conversationnel", desc: "Parler naturellement dans la vraie vie — commander, demander son chemin, discuter avec des amis. Forte place à l'écoute et à la prononciation." },
+      { name: "Japonais débutant", desc: "Hiragana et Katakana, puis structures simples avec beaucoup d'images et d'exemples — une base patiente et solide pour vrais débutants." },
+      { name: "JLPT (N5–N1)", desc: "Vocabulaire, grammaire et compréhension du N5 au N1, avec annales et stratégies d'écoute pour viser le meilleur score." },
+      { name: "Japonais avancé", desc: "Articles d'actualité, séries japonaises, Keigo (langage honorifique) et expressions formelles — comprendre la langue et la culture en profondeur." },
+      { name: "Japonais des affaires", desc: "Compétences pro réelles : appels, e-mails, étiquette en réunion et jeux de rôles — un japonais utilisable en entreprise japonaise." },
     ],
   },
   path: {
