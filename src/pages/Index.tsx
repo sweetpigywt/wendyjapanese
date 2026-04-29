@@ -49,7 +49,7 @@ const Index = () => {
       {/* Nav */}
       <header className="relative z-10 mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
         <a href="#" className="flex items-center gap-2">
-          <span className="ink-stamp h-9 w-9 rounded-md text-lg">櫻</span>
+          <span className="ink-stamp h-9 w-9 rounded-md text-lg" aria-label="Wendy">😊</span>
           <span className="font-serif text-lg font-bold tracking-wider">Sakura</span>
         </a>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
@@ -115,7 +115,7 @@ const Index = () => {
                   allowFullScreen
                   className="absolute inset-0 h-full w-full border-0"
                 />
-                <div className="pointer-events-none absolute right-4 top-4 ink-stamp h-12 w-12 rotate-3 rounded text-base">櫻</div>
+                <div className="pointer-events-none absolute right-4 top-4 ink-stamp h-12 w-12 rotate-3 rounded text-xl" aria-label="Wendy">😊</div>
               </div>
               <p className="mt-3 text-center text-xs tracking-widest text-muted-foreground">{t.hero.videoTitle} · {t.hero.videoSub}</p>
             </div>
