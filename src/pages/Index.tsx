@@ -50,7 +50,7 @@ const Index = () => {
       <header className="relative z-10 mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
         <a href="#" className="flex items-center gap-2">
           <span className="ink-stamp h-9 w-9 rounded-md text-lg" aria-label="Wendy">😊</span>
-          <span className="font-serif text-lg font-bold tracking-wider">Sakura</span>
+          <span className="font-serif text-lg font-bold tracking-wider">Wendy</span>
         </a>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
           <a href="#about" className="transition-colors hover:text-sakura">{t.nav.about}</a>

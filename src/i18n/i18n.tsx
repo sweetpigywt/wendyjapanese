@@ -121,7 +121,7 @@ const zh: Dict = {
     quote: "「千里の道も一歩から」",
     quoteSub: "千里之行，始于足下。",
   },
-  footer: "Sakura 日语学堂 · Made with ♥ in 東京",
+  footer: "Wendy 日语学堂 · Made with ♥ in 福岡",
   langLabel: "语言",
 };
 
@@ -188,7 +188,7 @@ const en: Dict = {
     quote: "「千里の道も一歩から」",
     quoteSub: "A journey of a thousand miles begins with a single step.",
   },
-  footer: "Sakura Japanese Studio · Made with ♥ in Tokyo",
+  footer: "Wendy Japanese Studio · Made with ♥ in Fukuoka",
   langLabel: "Language",
 };
 
@@ -255,7 +255,7 @@ const ja: Dict = {
     quote: "「千里の道も一歩から」",
     quoteSub: "千里の道も一歩から始まる。",
   },
-  footer: "Sakura 日本語スタジオ · Made with ♥ in 東京",
+  footer: "Wendy 日本語スタジオ · Made with ♥ in 福岡",
   langLabel: "言語",
 };
 
@@ -322,7 +322,7 @@ const fr: Dict = {
     quote: "「千里の道も一歩から」",
     quoteSub: "Un voyage de mille lieues commence par un pas.",
   },
-  footer: "Sakura Studio de japonais · Made with ♥ à Tokyo",
+  footer: "Wendy Studio de japonais · Made with ♥ à Fukuoka",
   langLabel: "Langue",
 };
 
