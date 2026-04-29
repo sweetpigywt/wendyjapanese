@@ -118,12 +118,12 @@ const Index = () => {
             </div>
             <div className="mt-10 flex gap-8">
               <div>
-                <div className="font-serif text-3xl font-bold text-sumi">2000<span className="text-sakura">+</span></div>
-                <div className="text-xs tracking-wider text-muted-foreground">{t.hero.stat1Label}</div>
-              </div>
-              <div className="border-l border-border pl-8">
                 <div className="font-serif text-3xl font-bold text-sumi">98<span className="text-sakura">%</span></div>
                 <div className="text-xs tracking-wider text-muted-foreground">{t.hero.stat2Label}</div>
+              </div>
+              <div className="border-l border-border pl-8">
+                <div className="font-serif text-3xl font-bold text-sumi">{t.hero.stat1Value}</div>
+                <div className="text-xs tracking-wider text-muted-foreground">{t.hero.stat1Label}</div>
               </div>
             </div>
           </Reveal>
