@@ -220,6 +220,11 @@ const en: Dict = {
       { name: "Business Japanese", desc: "Real workplace skills: phone calls, business email, meeting etiquette and role-play of common scenarios — Japanese you can use at a Japanese company." },
     ],
   },
+  intro: {
+    eyebrow: "INTRODUCTION · 自己紹介",
+    title: "Trilingual self-introduction (CN / JP / EN)",
+    subtitle: "A short video to give you a feel for my teaching style and how I approach Japanese.",
+  },
   path: {
     eyebrow: "ROADMAP · LEARNING PATH",
     title: "The full journey from kana to N1",
