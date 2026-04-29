@@ -311,7 +311,7 @@ const Index = () => {
                       className="border-border bg-background"
                     />
                   </div>
-                  <Button type="submit" className="w-full bg-sakura text-primary-foreground hover:bg-sakura/90">
+                  <Button type="submit" disabled={submitting} className="w-full bg-sakura text-primary-foreground hover:bg-sakura/90">
                     <Send className="mr-2 h-4 w-4" /> {t.contact.send}
                   </Button>
                 </form>
