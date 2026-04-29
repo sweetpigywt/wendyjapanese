@@ -27,6 +27,7 @@ import { supabase } from "@/integrations/supabase/client";
 import sensei from "@/assets/sensei.jpg";
 import wechatQr from "@/assets/wechat-qr.jpg";
 import whatsappQr from "@/assets/whatsapp-qr.jpg";
+import wendyLogo from "@/assets/wendy-logo.png";
 
 const credentialIcons = [Award, GraduationCap, Globe2, Star];
 const featureIcons = [BookOpen, Mic, Sparkles];
