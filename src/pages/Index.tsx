@@ -107,18 +107,17 @@ const Index = () => {
                 {t.hero.sideText}
               </div>
               <div className="group relative aspect-[4/5] overflow-hidden rounded-2xl bg-gradient-warm shadow-soft">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(var(--washi)),hsl(var(--accent)))]" />
-                  <div className="relative z-10 flex flex-col items-center text-center">
-                    <button className="flex h-20 w-20 items-center justify-center rounded-full bg-sakura text-primary-foreground shadow-soft transition-transform hover:scale-110">
-                      <PlayCircle className="h-10 w-10" strokeWidth={1.5} />
-                    </button>
-                    <p className="mt-5 font-serif text-lg text-sumi">{t.hero.videoTitle}</p>
-                    <p className="mt-1 text-xs tracking-widest text-muted-foreground">{t.hero.videoSub}</p>
-                  </div>
-                </div>
-                <div className="absolute right-4 top-4 ink-stamp h-12 w-12 rotate-3 rounded text-base">櫻</div>
+                <iframe
+                  src="https://www.youtube.com/embed/gRXVPGAqbFg?rel=0&modestbranding=1"
+                  title={t.hero.videoTitle}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="absolute inset-0 h-full w-full border-0"
+                />
+                <div className="pointer-events-none absolute right-4 top-4 ink-stamp h-12 w-12 rotate-3 rounded text-base">櫻</div>
               </div>
+              <p className="mt-3 text-center text-xs tracking-widest text-muted-foreground">{t.hero.videoTitle} · {t.hero.videoSub}</p>
             </div>
           </Reveal>
         </div>
