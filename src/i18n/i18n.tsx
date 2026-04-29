@@ -76,7 +76,7 @@ const zh: Dict = {
   about: {
     eyebrow: "先生紹介 · 老师介绍",
     title1: "はじめまして,",
-    title2: "我是 Sakura 老师",
+    title2: "我是 Wendy 老师",
     bio: "八年专注日语教学，深耕语法体系与口语表达。曾任日企翻译，熟悉商务与生活场景的真实语境。我相信学习语言不只是背单词，而是打开一扇通往文化、电影、文学的门。",
     credentials: ["JLPT N1 满分认证", "8 年线上线下教学经验", "早稻田大学交换访学", "累计 2000+ 学员"],
   },
@@ -143,7 +143,7 @@ const en: Dict = {
   about: {
     eyebrow: "先生紹介 · ABOUT SENSEI",
     title1: "Nice to meet you,",
-    title2: "I'm Sakura Sensei",
+    title2: "I'm Wendy Sensei",
     bio: "Eight years devoted to teaching Japanese, with deep focus on grammar systems and spoken expression. Former in-house translator at a Japanese firm. I believe language learning isn't memorising words — it's opening a door to culture, cinema and literature.",
     credentials: ["JLPT N1 perfect score", "8 years teaching experience", "Waseda University exchange", "2000+ students taught"],
   },
@@ -210,7 +210,7 @@ const ja: Dict = {
   about: {
     eyebrow: "先生紹介 · ABOUT SENSEI",
     title1: "はじめまして,",
-    title2: "Sakura先生です",
+    title2: "Wendy先生です",
     bio: "8年間、日本語教育一筋。文法体系と話し言葉の表現を専門としています。日系企業での翻訳経験もあり、ビジネスから日常まで生きた日本語をお伝えします。言語学習は単語暗記ではなく、文化・映画・文学への扉を開くことだと信じています。",
     credentials: ["JLPT N1 満点取得", "オンライン・対面 8年指導歴", "早稲田大学 交換留学", "受講生 2,000名以上"],
   },
@@ -277,7 +277,7 @@ const fr: Dict = {
   about: {
     eyebrow: "先生紹介 · LE PROFESSEUR",
     title1: "Enchantée,",
-    title2: "je suis Sakura Sensei",
+    title2: "je suis Wendy Sensei",
     bio: "Huit ans d'enseignement du japonais, avec une attention particulière à la grammaire et à l'expression orale. Ancienne traductrice en entreprise japonaise. Apprendre une langue, ce n'est pas mémoriser des mots — c'est ouvrir une porte sur une culture, un cinéma, une littérature.",
     credentials: ["Score parfait au JLPT N1", "8 ans d'enseignement", "Échange à l'université Waseda", "Plus de 2 000 élèves"],
   },

@@ -131,7 +131,7 @@ const Index = () => {
               <div className="absolute -left-3 -top-3 h-full w-full rounded-2xl border-2 border-sakura/40" />
               <img
                 src={sensei}
-                alt="Sakura Sensei"
+                alt="Wendy Sensei"
                 width={320}
                 height={320}
                 loading="lazy"
