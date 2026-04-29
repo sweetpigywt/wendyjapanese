@@ -12,6 +12,7 @@ type Dict = {
     ctaPrimary: string;
     ctaSecondary: string;
     stat1Label: string;
+    stat1Value: string;
     stat2Label: string;
     videoTitle: string;
     videoSub: string;
@@ -29,6 +30,19 @@ type Dict = {
     title: string;
     subtitle: string;
     items: { jp: string; title: string; desc: string }[];
+  };
+  subjects: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    seniority: string;
+    seniorityValue: string;
+    levelsLabel: string;
+    levels: string[];
+    agesLabel: string;
+    ages: string[];
+    coursesLabel: string;
+    courses: { name: string; desc: string }[];
   };
   path: {
     eyebrow: string;
