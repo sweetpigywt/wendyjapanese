@@ -50,7 +50,9 @@ type Dict = {
     success: string;
     emailLabel: string;
     wechatLabel: string;
-    githubLabel: string;
+    lineLabel: string;
+    whatsappLabel: string;
+    scanQr: string;
     quote: string;
     quoteSub: string;
   };
