@@ -4,15 +4,15 @@ import {
   BookOpen,
   Mic,
   Sparkles,
-  PlayCircle,
   Mail,
   MessageCircle,
-  Github,
   ArrowRight,
   GraduationCap,
   Globe2,
   Star,
   Send,
+  MessageSquare,
+  Phone,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -23,7 +23,10 @@ import { Reveal } from "@/components/Reveal";
 import { Petals } from "@/components/Petals";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useI18n } from "@/i18n/i18n";
+import { supabase } from "@/integrations/supabase/client";
 import sensei from "@/assets/sensei.jpg";
+import wechatQr from "@/assets/wechat-qr.jpg";
+import whatsappQr from "@/assets/whatsapp-qr.jpg";
 
 const credentialIcons = [Award, GraduationCap, Globe2, Star];
 const featureIcons = [BookOpen, Mic, Sparkles];
@@ -32,14 +35,38 @@ const Index = () => {
   const { t } = useI18n();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+  const [qrOpen, setQrOpen] = useState<null | "wechat" | "whatsapp">(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email) {
       toast.error(t.contact.errorRequired);
       return;
     }
-    toast.success(t.contact.success);
-    setForm({ name: "", email: "", message: "" });
+    setSubmitting(true);
+    try {
+      const { error } = await supabase.from("contact_submissions").insert({
+        name: form.name.trim().slice(0, 100),
+        email: form.email.trim().slice(0, 255),
+        message: form.message.trim().slice(0, 2000),
+      });
+      if (error) throw error;
+      try {
+        await supabase.functions.invoke("send-contact-email", {
+          body: { name: form.name, email: form.email, message: form.message },
+        });
+      } catch {
+        /* email best-effort */
+      }
+      toast.success(t.contact.success);
+      setForm({ name: "", email: "", message: "" });
+    } catch (err) {
+      console.error(err);
+      toast.error(t.contact.errorRequired);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -284,7 +311,7 @@ const Index = () => {
                       className="border-border bg-background"
                     />
                   </div>
-                  <Button type="submit" className="w-full bg-sakura text-primary-foreground hover:bg-sakura/90">
+                  <Button type="submit" disabled={submitting} className="w-full bg-sakura text-primary-foreground hover:bg-sakura/90">
                     <Send className="mr-2 h-4 w-4" /> {t.contact.send}
                   </Button>
                 </form>
@@ -293,33 +320,45 @@ const Index = () => {
 
             <Reveal delay={150}>
               <div className="flex h-full flex-col gap-4">
-                <a href="mailto:sakura.sensei@example.com" className="group flex items-center gap-4 rounded-xl border border-border bg-card p-5 transition-all hover:border-sakura hover:shadow-card">
+                <a href="mailto:wenty_y@hotmail.com" className="group flex items-center gap-4 rounded-xl border border-border bg-card p-5 transition-all hover:border-sakura hover:shadow-card">
                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-sakura/10 text-sakura group-hover:bg-sakura group-hover:text-primary-foreground">
                     <Mail className="h-5 w-5" />
                   </div>
                   <div>
                     <div className="text-xs tracking-wider text-muted-foreground">{t.contact.emailLabel}</div>
-                    <div className="font-medium text-sumi">sakura.sensei@example.com</div>
+                    <div className="font-medium text-sumi">wenty_y@hotmail.com</div>
                   </div>
                 </a>
-                <div className="group flex items-center gap-4 rounded-xl border border-border bg-card p-5 transition-all hover:border-sakura hover:shadow-card">
+
+                <a href="https://line.me/ti/p/QQ17Cz-yW_" target="_blank" rel="noreferrer" className="group flex items-center gap-4 rounded-xl border border-border bg-card p-5 transition-all hover:border-sakura hover:shadow-card">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-sakura/10 text-sakura group-hover:bg-sakura group-hover:text-primary-foreground">
+                    <MessageSquare className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <div className="text-xs tracking-wider text-muted-foreground">{t.contact.lineLabel}</div>
+                    <div className="font-medium text-sumi">QQ17Cz-yW_</div>
+                  </div>
+                </a>
+
+                <button type="button" onClick={() => setQrOpen("wechat")} className="group flex items-center gap-4 rounded-xl border border-border bg-card p-5 text-left transition-all hover:border-sakura hover:shadow-card">
                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-sakura/10 text-sakura group-hover:bg-sakura group-hover:text-primary-foreground">
                     <MessageCircle className="h-5 w-5" />
                   </div>
                   <div>
                     <div className="text-xs tracking-wider text-muted-foreground">{t.contact.wechatLabel}</div>
-                    <div className="font-medium text-sumi">sakura_sensei_jp</div>
+                    <div className="font-medium text-sumi">{t.contact.scanQr}</div>
                   </div>
-                </div>
-                <a href="https://github.com" target="_blank" rel="noreferrer" className="group flex items-center gap-4 rounded-xl border border-border bg-card p-5 transition-all hover:border-sakura hover:shadow-card">
+                </button>
+
+                <button type="button" onClick={() => setQrOpen("whatsapp")} className="group flex items-center gap-4 rounded-xl border border-border bg-card p-5 text-left transition-all hover:border-sakura hover:shadow-card">
                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-sakura/10 text-sakura group-hover:bg-sakura group-hover:text-primary-foreground">
-                    <Github className="h-5 w-5" />
+                    <Phone className="h-5 w-5" />
                   </div>
                   <div>
-                    <div className="text-xs tracking-wider text-muted-foreground">{t.contact.githubLabel}</div>
-                    <div className="font-medium text-sumi">@sakura-sensei</div>
+                    <div className="text-xs tracking-wider text-muted-foreground">{t.contact.whatsappLabel}</div>
+                    <div className="font-medium text-sumi">Wendy FLORITA · {t.contact.scanQr}</div>
                   </div>
-                </a>
+                </button>
 
                 <Card className="mt-auto bg-gradient-sakura p-6 text-primary-foreground">
                   <p className="font-serif text-sm leading-relaxed">{t.contact.quote}</p>
@@ -330,6 +369,38 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* QR modal */}
+      {qrOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
+          onClick={() => setQrOpen(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            className="relative max-w-sm rounded-2xl bg-background p-6 shadow-soft"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="mb-4 text-center font-serif text-lg font-bold text-sumi">
+              {qrOpen === "wechat" ? t.contact.wechatLabel : t.contact.whatsappLabel}
+            </div>
+            <img
+              src={qrOpen === "wechat" ? wechatQr : whatsappQr}
+              alt={qrOpen === "wechat" ? "WeChat QR" : "WhatsApp QR"}
+              className="mx-auto h-72 w-72 rounded-lg object-contain"
+            />
+            <p className="mt-4 text-center text-xs text-muted-foreground">{t.contact.scanQr}</p>
+            <button
+              onClick={() => setQrOpen(null)}
+              className="absolute right-3 top-3 rounded-full p-1 text-muted-foreground hover:text-sumi"
+              aria-label="Close"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Footer */}
       <footer className="relative z-10 border-t border-border/60 py-10">

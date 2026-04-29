@@ -50,7 +50,9 @@ type Dict = {
     success: string;
     emailLabel: string;
     wechatLabel: string;
-    githubLabel: string;
+    lineLabel: string;
+    whatsappLabel: string;
+    scanQr: string;
     quote: string;
     quoteSub: string;
   };
@@ -117,7 +119,9 @@ const zh: Dict = {
     success: "ありがとう！消息已送达，老师会尽快回复你 ✿",
     emailLabel: "Email",
     wechatLabel: "微信",
-    githubLabel: "GitHub · 学习资源",
+    lineLabel: "LINE",
+    whatsappLabel: "WhatsApp",
+    scanQr: "扫码添加",
     quote: "「千里の道も一歩から」",
     quoteSub: "千里之行，始于足下。",
   },
@@ -184,7 +188,9 @@ const en: Dict = {
     success: "ありがとう! Message received — I'll reply soon ✿",
     emailLabel: "Email",
     wechatLabel: "WeChat",
-    githubLabel: "GitHub · Resources",
+    lineLabel: "LINE",
+    whatsappLabel: "WhatsApp",
+    scanQr: "Scan QR to add",
     quote: "「千里の道も一歩から」",
     quoteSub: "A journey of a thousand miles begins with a single step.",
   },
@@ -251,7 +257,9 @@ const ja: Dict = {
     success: "ありがとうございます！まもなくお返事いたします ✿",
     emailLabel: "Email",
     wechatLabel: "WeChat",
-    githubLabel: "GitHub · 学習リソース",
+    lineLabel: "LINE",
+    whatsappLabel: "WhatsApp",
+    scanQr: "QRコードで追加",
     quote: "「千里の道も一歩から」",
     quoteSub: "千里の道も一歩から始まる。",
   },
@@ -318,7 +326,9 @@ const fr: Dict = {
     success: "ありがとう ! Message bien reçu, je reviens vite vers vous ✿",
     emailLabel: "Email",
     wechatLabel: "WeChat",
-    githubLabel: "GitHub · Ressources",
+    lineLabel: "LINE",
+    whatsappLabel: "WhatsApp",
+    scanQr: "Scanner le QR",
     quote: "「千里の道も一歩から」",
     quoteSub: "Un voyage de mille lieues commence par un pas.",
   },
