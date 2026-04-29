@@ -398,6 +398,11 @@ const fr: Dict = {
       { name: "Japonais des affaires", desc: "Compétences pro réelles : appels, e-mails, étiquette en réunion et jeux de rôles — un japonais utilisable en entreprise japonaise." },
     ],
   },
+  intro: {
+    eyebrow: "PRÉSENTATION · 自己紹介",
+    title: "Présentation trilingue (CN / JP / EN)",
+    subtitle: "Une courte vidéo pour découvrir mon style d'enseignement et ma façon d'aborder le japonais.",
+  },
   path: {
     eyebrow: "PARCOURS · ROADMAP",
     title: "Le parcours complet, des kana au N1",
