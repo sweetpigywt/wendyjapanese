@@ -282,6 +282,36 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Trilingual Intro Video */}
+      <section id="intro" className="relative z-10 border-t border-border/60 py-24">
+        <div className="mx-auto max-w-4xl px-6">
+          <Reveal>
+            <div className="mb-12 text-center">
+              <p className="mb-3 text-xs tracking-[0.3em] text-sakura">{t.intro.eyebrow}</p>
+              <h2 className="font-serif text-3xl font-bold text-sumi md:text-4xl">{t.intro.title}</h2>
+              <p className="mx-auto mt-4 max-w-xl text-muted-foreground">{t.intro.subtitle}</p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <Card className="group relative overflow-hidden border-border bg-background p-3 shadow-card transition-all duration-500 hover:-translate-y-1 hover:shadow-soft sm:p-4">
+              <div className="pointer-events-none absolute -left-10 -top-10 h-40 w-40 rounded-full bg-sakura/10 blur-3xl" />
+              <div className="pointer-events-none absolute -bottom-10 -right-10 h-40 w-40 rounded-full bg-matcha/10 blur-3xl" />
+              <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-sumi/90">
+                <iframe
+                  className="h-full w-full"
+                  src="https://www.youtube.com/embed/qWhjhzzd2t8"
+                  title={t.intro.title}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+            </Card>
+          </Reveal>
+        </div>
+      </section>
+
       {/* Learning Path */}
       <section id="path" className="relative z-10 border-t border-border/60 bg-card/40 py-24 backdrop-blur-sm">
         <div className="mx-auto max-w-4xl px-6">
