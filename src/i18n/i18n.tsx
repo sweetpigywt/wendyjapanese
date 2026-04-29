@@ -138,7 +138,7 @@ const en: Dict = {
     subtitle: "From kana to N1 — I'll walk every step with you.\nStructured curriculum · live coaching · 24/7 AI partner.",
     ctaPrimary: "Book a free trial",
     ctaSecondary: "View roadmap",
-    stat1Label: "Students worldwide",
+    stat1Label: "Trilingual teaching (CN/JP/EN)",
     stat2Label: "JLPT pass rate",
     videoTitle: "Course intro video",
     videoSub: "90 seconds about my method",
@@ -149,7 +149,7 @@ const en: Dict = {
     title1: "Nice to meet you,",
     title2: "I'm Wendy Sensei",
     bio: "Eight years devoted to teaching Japanese, with deep focus on grammar systems and spoken expression. Former in-house translator at a Japanese firm. I believe language learning isn't memorising words — it's opening a door to culture, cinema and literature.",
-    credentials: ["JLPT N1 perfect score", "8 years teaching experience", "Waseda University exchange", "2000+ students taught"],
+    credentials: ["JLPT N1 perfect score", "8 years teaching experience", "Certified Japanese-language teacher (Japan national qualification)", "2000+ students taught"],
   },
   features: {
     eyebrow: "METHOD · TEACHING APPROACH",
@@ -158,7 +158,7 @@ const en: Dict = {
     items: [
       { jp: "文法", title: "Interactive grammar", desc: "We dissect Japanese sentence structure with animated diagrams and real-life examples — particles, keigo and tenses become intuitive." },
       { jp: "発音", title: "Native-like pronunciation", desc: "Personal voice feedback targeting pitch accent and sokuon — the exact spots non-natives stumble on." },
-      { jp: "AI", title: "AI-powered practice", desc: "A dedicated AI partner for 24/7 conversation, auto-generated flashcards and a personalised review schedule." },
+      { jp: "練習", title: "Rich after-class practice", desc: "Plenty of practice and review materials so you can reinforce what we covered in class the same day." },
     ],
   },
   path: {
@@ -207,7 +207,7 @@ const ja: Dict = {
     subtitle: "五十音からN1まで、一歩ずつ一緒に歩みます。\n体系的なカリキュラム・ネイティブ発音指導・24時間AIパートナー。",
     ctaPrimary: "無料体験を予約",
     ctaSecondary: "学習プランを見る",
-    stat1Label: "世界中の受講生",
+    stat1Label: "中日英 3言語で指導可能",
     stat2Label: "JLPT合格率",
     videoTitle: "コース紹介動画",
     videoSub: "90秒で教え方を紹介",
@@ -218,7 +218,7 @@ const ja: Dict = {
     title1: "はじめまして,",
     title2: "Wendy先生です",
     bio: "8年間、日本語教育一筋。文法体系と話し言葉の表現を専門としています。日系企業での翻訳経験もあり、ビジネスから日常まで生きた日本語をお伝えします。言語学習は単語暗記ではなく、文化・映画・文学への扉を開くことだと信じています。",
-    credentials: ["JLPT N1 満点取得", "オンライン・対面 8年指導歴", "早稲田大学 交換留学", "受講生 2,000名以上"],
+    credentials: ["JLPT N1 満点取得", "オンライン・対面 8年指導歴", "日本語教育能力検定 国家資格保持", "受講生 2,000名以上"],
   },
   features: {
     eyebrow: "特色 · 教え方",
@@ -227,7 +227,7 @@ const ja: Dict = {
     items: [
       { jp: "文法", title: "インタラクティブ文法", desc: "文の骨格をアニメと実例で分解。助詞・敬語・時制が直感的に理解できます。" },
       { jp: "発音", title: "ネイティブ発音矯正", desc: "1対1の音声フィードバックで、高低アクセントと促音をピンポイントに矯正。" },
-      { jp: "AI", title: "AI学習サポート", desc: "専用AIパートナーが24時間会話練習。単語カードと復習計画も自動生成。" },
+      { jp: "練習", title: "充実した課後練習ツール", desc: "豊富な復習教材で、その日のレッスン内容をしっかり定着させます。" },
     ],
   },
   path: {
@@ -276,7 +276,7 @@ const fr: Dict = {
     subtitle: "Des kana au N1 — je vous accompagne à chaque étape.\nCursus structuré · coaching humain · IA disponible 24h/24.",
     ctaPrimary: "Réserver un essai gratuit",
     ctaSecondary: "Voir le parcours",
-    stat1Label: "Élèves dans le monde",
+    stat1Label: "Enseigne en CN/JP/EN",
     stat2Label: "Taux de réussite JLPT",
     videoTitle: "Vidéo de présentation",
     videoSub: "90 secondes sur ma méthode",
@@ -287,7 +287,7 @@ const fr: Dict = {
     title1: "Enchantée,",
     title2: "je suis Wendy Sensei",
     bio: "Huit ans d'enseignement du japonais, avec une attention particulière à la grammaire et à l'expression orale. Ancienne traductrice en entreprise japonaise. Apprendre une langue, ce n'est pas mémoriser des mots — c'est ouvrir une porte sur une culture, un cinéma, une littérature.",
-    credentials: ["Score parfait au JLPT N1", "8 ans d'enseignement", "Échange à l'université Waseda", "Plus de 2 000 élèves"],
+    credentials: ["Score parfait au JLPT N1", "8 ans d'enseignement", "Diplôme d'État japonais d'enseignement du japonais", "Plus de 2 000 élèves"],
   },
   features: {
     eyebrow: "MÉTHODE · APPROCHE",
@@ -296,7 +296,7 @@ const fr: Dict = {
     items: [
       { jp: "文法", title: "Grammaire interactive", desc: "Nous décomposons la structure des phrases avec animations et exemples concrets — particules, keigo et temps deviennent intuitifs." },
       { jp: "発音", title: "Prononciation authentique", desc: "Retours audio personnalisés sur l'accent de hauteur et le sokuon — exactement là où les francophones butent." },
-      { jp: "AI", title: "Pratique assistée par IA", desc: "Un partenaire IA dédié pour converser 24h/24, des cartes de vocabulaire et un programme de révision personnalisés." },
+      { jp: "練習", title: "Exercices après-cours riches", desc: "De nombreux supports d'entraînement pour réviser le contenu vu en cours le jour même." },
     ],
   },
   path: {
