@@ -224,6 +224,64 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Subjects taught */}
+      <section id="subjects" className="relative z-10 border-t border-border/60 bg-card/40 py-24 backdrop-blur-sm">
+        <div className="mx-auto max-w-6xl px-6">
+          <Reveal>
+            <div className="mb-12 text-center">
+              <p className="mb-3 text-xs tracking-[0.3em] text-sakura">{t.subjects.eyebrow}</p>
+              <h2 className="font-serif text-3xl font-bold text-sumi md:text-4xl">{t.subjects.title}</h2>
+              <p className="mx-auto mt-4 max-w-xl text-muted-foreground">{t.subjects.subtitle}</p>
+            </div>
+          </Reveal>
+
+          <div className="grid gap-6 md:grid-cols-[1fr_2fr]">
+            <Reveal>
+              <Card className="h-full border-border bg-background p-6 shadow-card">
+                <div className="mb-6">
+                  <div className="text-xs tracking-wider text-muted-foreground">{t.subjects.seniority}</div>
+                  <div className="mt-1 font-serif text-3xl font-bold text-sumi">{t.subjects.seniorityValue}</div>
+                </div>
+                <div className="mb-6">
+                  <div className="mb-2 text-xs tracking-wider text-muted-foreground">{t.subjects.levelsLabel}</div>
+                  <div className="flex flex-wrap gap-2">
+                    {t.subjects.levels.map((l) => (
+                      <span key={l} className="rounded-full border border-sakura/30 bg-sakura/5 px-3 py-1 text-xs text-sumi">{l}</span>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <div className="mb-2 text-xs tracking-wider text-muted-foreground">{t.subjects.agesLabel}</div>
+                  <div className="flex flex-wrap gap-2">
+                    {t.subjects.ages.map((a) => (
+                      <span key={a} className="rounded-full border border-border bg-accent px-3 py-1 text-xs text-sumi">{a}</span>
+                    ))}
+                  </div>
+                </div>
+              </Card>
+            </Reveal>
+
+            <Reveal delay={150}>
+              <div>
+                <div className="mb-4 text-xs tracking-wider text-muted-foreground">{t.subjects.coursesLabel}</div>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {t.subjects.courses.map((c, i) => (
+                    <Card key={c.name} className={`group relative overflow-hidden border-border bg-background p-6 shadow-card transition-all duration-500 hover:-translate-y-1 hover:shadow-soft ${i === t.subjects.courses.length - 1 ? "sm:col-span-2" : ""}`}>
+                      <div className="mb-3 flex items-center gap-3">
+                        <span className="flex h-8 w-8 items-center justify-center rounded-md bg-sakura/10 font-serif text-sm font-bold text-sakura">{String(i + 1).padStart(2, "0")}</span>
+                        <h3 className="font-serif text-lg font-bold text-sumi">{c.name}</h3>
+                      </div>
+                      <p className="text-sm leading-relaxed text-muted-foreground">{c.desc}</p>
+                      <div className="mt-4 h-px w-12 bg-sakura" />
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* Learning Path */}
       <section id="path" className="relative z-10 border-t border-border/60 bg-card/40 py-24 backdrop-blur-sm">
         <div className="mx-auto max-w-4xl px-6">
