@@ -35,14 +35,38 @@ const Index = () => {
   const { t } = useI18n();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+  const [qrOpen, setQrOpen] = useState<null | "wechat" | "whatsapp">(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email) {
       toast.error(t.contact.errorRequired);
       return;
     }
-    toast.success(t.contact.success);
-    setForm({ name: "", email: "", message: "" });
+    setSubmitting(true);
+    try {
+      const { error } = await supabase.from("contact_submissions").insert({
+        name: form.name.trim().slice(0, 100),
+        email: form.email.trim().slice(0, 255),
+        message: form.message.trim().slice(0, 2000),
+      });
+      if (error) throw error;
+      try {
+        await supabase.functions.invoke("send-contact-email", {
+          body: { name: form.name, email: form.email, message: form.message },
+        });
+      } catch {
+        /* email best-effort */
+      }
+      toast.success(t.contact.success);
+      setForm({ name: "", email: "", message: "" });
+    } catch (err) {
+      console.error(err);
+      toast.error(t.contact.errorRequired);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
