@@ -44,6 +44,11 @@ type Dict = {
     coursesLabel: string;
     courses: { name: string; desc: string }[];
   };
+  intro: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+  };
   path: {
     eyebrow: string;
     title: string;
