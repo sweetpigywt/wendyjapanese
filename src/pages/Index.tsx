@@ -27,16 +27,6 @@ import { supabase } from "@/integrations/supabase/client";
 import sensei from "@/assets/sensei.jpg";
 import wechatQr from "@/assets/wechat-qr.jpg";
 import whatsappQr from "@/assets/whatsapp-qr.jpg";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { toast } from "sonner";
-import { Reveal } from "@/components/Reveal";
-import { Petals } from "@/components/Petals";
-import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import { useI18n } from "@/i18n/i18n";
-import sensei from "@/assets/sensei.jpg";
 
 const credentialIcons = [Award, GraduationCap, Globe2, Star];
 const featureIcons = [BookOpen, Mic, Sparkles];
