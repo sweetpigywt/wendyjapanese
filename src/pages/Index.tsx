@@ -320,33 +320,45 @@ const Index = () => {
 
             <Reveal delay={150}>
               <div className="flex h-full flex-col gap-4">
-                <a href="mailto:sakura.sensei@example.com" className="group flex items-center gap-4 rounded-xl border border-border bg-card p-5 transition-all hover:border-sakura hover:shadow-card">
+                <a href="mailto:wenty_y@hotmail.com" className="group flex items-center gap-4 rounded-xl border border-border bg-card p-5 transition-all hover:border-sakura hover:shadow-card">
                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-sakura/10 text-sakura group-hover:bg-sakura group-hover:text-primary-foreground">
                     <Mail className="h-5 w-5" />
                   </div>
                   <div>
                     <div className="text-xs tracking-wider text-muted-foreground">{t.contact.emailLabel}</div>
-                    <div className="font-medium text-sumi">sakura.sensei@example.com</div>
+                    <div className="font-medium text-sumi">wenty_y@hotmail.com</div>
                   </div>
                 </a>
-                <div className="group flex items-center gap-4 rounded-xl border border-border bg-card p-5 transition-all hover:border-sakura hover:shadow-card">
+
+                <a href="https://line.me/ti/p/QQ17Cz-yW_" target="_blank" rel="noreferrer" className="group flex items-center gap-4 rounded-xl border border-border bg-card p-5 transition-all hover:border-sakura hover:shadow-card">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-sakura/10 text-sakura group-hover:bg-sakura group-hover:text-primary-foreground">
+                    <MessageSquare className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <div className="text-xs tracking-wider text-muted-foreground">{t.contact.lineLabel}</div>
+                    <div className="font-medium text-sumi">QQ17Cz-yW_</div>
+                  </div>
+                </a>
+
+                <button type="button" onClick={() => setQrOpen("wechat")} className="group flex items-center gap-4 rounded-xl border border-border bg-card p-5 text-left transition-all hover:border-sakura hover:shadow-card">
                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-sakura/10 text-sakura group-hover:bg-sakura group-hover:text-primary-foreground">
                     <MessageCircle className="h-5 w-5" />
                   </div>
                   <div>
                     <div className="text-xs tracking-wider text-muted-foreground">{t.contact.wechatLabel}</div>
-                    <div className="font-medium text-sumi">sakura_sensei_jp</div>
+                    <div className="font-medium text-sumi">{t.contact.scanQr}</div>
                   </div>
-                </div>
-                <a href="https://github.com" target="_blank" rel="noreferrer" className="group flex items-center gap-4 rounded-xl border border-border bg-card p-5 transition-all hover:border-sakura hover:shadow-card">
+                </button>
+
+                <button type="button" onClick={() => setQrOpen("whatsapp")} className="group flex items-center gap-4 rounded-xl border border-border bg-card p-5 text-left transition-all hover:border-sakura hover:shadow-card">
                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-sakura/10 text-sakura group-hover:bg-sakura group-hover:text-primary-foreground">
-                    <Github className="h-5 w-5" />
+                    <Phone className="h-5 w-5" />
                   </div>
                   <div>
-                    <div className="text-xs tracking-wider text-muted-foreground">{t.contact.githubLabel}</div>
-                    <div className="font-medium text-sumi">@sakura-sensei</div>
+                    <div className="text-xs tracking-wider text-muted-foreground">{t.contact.whatsappLabel}</div>
+                    <div className="font-medium text-sumi">Wendy FLORITA · {t.contact.scanQr}</div>
                   </div>
-                </a>
+                </button>
 
                 <Card className="mt-auto bg-gradient-sakura p-6 text-primary-foreground">
                   <p className="font-serif text-sm leading-relaxed">{t.contact.quote}</p>
@@ -357,6 +369,38 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* QR modal */}
+      {qrOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
+          onClick={() => setQrOpen(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            className="relative max-w-sm rounded-2xl bg-background p-6 shadow-soft"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="mb-4 text-center font-serif text-lg font-bold text-sumi">
+              {qrOpen === "wechat" ? t.contact.wechatLabel : t.contact.whatsappLabel}
+            </div>
+            <img
+              src={qrOpen === "wechat" ? wechatQr : whatsappQr}
+              alt={qrOpen === "wechat" ? "WeChat QR" : "WhatsApp QR"}
+              className="mx-auto h-72 w-72 rounded-lg object-contain"
+            />
+            <p className="mt-4 text-center text-xs text-muted-foreground">{t.contact.scanQr}</p>
+            <button
+              onClick={() => setQrOpen(null)}
+              className="absolute right-3 top-3 rounded-full p-1 text-muted-foreground hover:text-sumi"
+              aria-label="Close"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Footer */}
       <footer className="relative z-10 border-t border-border/60 py-10">
