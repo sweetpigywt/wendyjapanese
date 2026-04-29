@@ -44,6 +44,11 @@ type Dict = {
     coursesLabel: string;
     courses: { name: string; desc: string }[];
   };
+  intro: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+  };
   path: {
     eyebrow: string;
     title: string;
@@ -125,6 +130,11 @@ const zh: Dict = {
       { name: "进阶日语", desc: "新闻阅读、日剧赏析、敬语 (Keigo) 与正式表达，帮助你理解语言背后的文化与思维方式。" },
       { name: "商务日语", desc: "职场场景实战：电话应对、商务邮件、会议礼仪与角色扮演，让你在日企从容沟通。" },
     ],
+  },
+  intro: {
+    eyebrow: "自我介绍 · 三语简介",
+    title: "中日英三语自我介绍",
+    subtitle: "一段简短的视频，让你直观感受我的授课风格与教学方式。",
   },
   path: {
     eyebrow: "学习路径 · 路线图",
@@ -215,6 +225,11 @@ const en: Dict = {
       { name: "Business Japanese", desc: "Real workplace skills: phone calls, business email, meeting etiquette and role-play of common scenarios — Japanese you can use at a Japanese company." },
     ],
   },
+  intro: {
+    eyebrow: "INTRODUCTION · 自己紹介",
+    title: "Trilingual self-introduction (CN / JP / EN)",
+    subtitle: "A short video to give you a feel for my teaching style and how I approach Japanese.",
+  },
   path: {
     eyebrow: "ROADMAP · LEARNING PATH",
     title: "The full journey from kana to N1",
@@ -304,6 +319,11 @@ const ja: Dict = {
       { name: "ビジネス日本語", desc: "電話応対、ビジネスメール、会議マナーをロールプレイで実践。日系企業で使える日本語を身につけます。" },
     ],
   },
+  intro: {
+    eyebrow: "自己紹介 · INTRODUCTION",
+    title: "中・日・英 三か国語での自己紹介",
+    subtitle: "短い動画で、私の授業スタイルと日本語へのアプローチをご覧いただけます。",
+  },
   path: {
     eyebrow: "学習プラン · ROADMAP",
     title: "かなからN1までの完全ロードマップ",
@@ -392,6 +412,11 @@ const fr: Dict = {
       { name: "Japonais avancé", desc: "Articles d'actualité, séries japonaises, Keigo (langage honorifique) et expressions formelles — comprendre la langue et la culture en profondeur." },
       { name: "Japonais des affaires", desc: "Compétences pro réelles : appels, e-mails, étiquette en réunion et jeux de rôles — un japonais utilisable en entreprise japonaise." },
     ],
+  },
+  intro: {
+    eyebrow: "PRÉSENTATION · 自己紹介",
+    title: "Présentation trilingue (CN / JP / EN)",
+    subtitle: "Une courte vidéo pour découvrir mon style d'enseignement et ma façon d'aborder le japonais.",
   },
   path: {
     eyebrow: "PARCOURS · ROADMAP",
