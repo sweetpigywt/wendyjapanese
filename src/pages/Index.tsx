@@ -143,7 +143,7 @@ const Index = () => {
                   allowFullScreen
                   className="absolute inset-0 h-full w-full border-0"
                 />
-                <div className="pointer-events-none absolute right-4 top-4 ink-stamp h-12 w-12 rotate-3 rounded text-xl" aria-label="Wendy">😊</div>
+                <img src={wendyLogo} alt="Wendy logo" loading="lazy" width={48} height={48} className="pointer-events-none absolute right-4 top-4 h-12 w-12 rotate-3 rounded object-contain shadow-soft" />
               </div>
               <p className="mt-3 text-center text-xs tracking-widest text-muted-foreground">{t.hero.videoTitle} · {t.hero.videoSub}</p>
             </div>
