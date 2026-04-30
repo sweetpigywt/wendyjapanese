@@ -3,7 +3,7 @@ import { createContext, useContext, useState, useEffect, ReactNode } from "react
 export type Lang = "zh" | "en" | "ja" | "fr";
 
 type Dict = {
-  nav: { about: string; features: string; path: string; contact: string; trial: string };
+  nav: { about: string; features: string; path: string; contact: string; trial: string; courses: string };
   hero: {
     welcome: string;
     title1: string;
@@ -110,11 +110,28 @@ type Dict = {
     errorRequired: string;
     summaryTitle: string;
     timeHint: string;
+    pickDateFirst: string;
+    dayUnavailable: string;
+    availability: string;
+  };
+  courses: {
+    nav: string;
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    back: string;
+    sessionsLabel: string;
+    items: {
+      title: string;
+      spec?: string;
+      summary?: string;
+      sections: { heading: string; bullets: string[] }[];
+    }[];
   };
 };
 
 const zh: Dict = {
-  nav: { about: "老师介绍", features: "教学特色", path: "学习路径", contact: "联系方式", trial: "免费试听" },
+  nav: { about: "老师介绍", features: "教学特色", path: "学习路径", contact: "联系方式", trial: "免费试听", courses: "课程介绍" },
   hero: {
     welcome: "ようこそ · 欢迎",
     title1: "掌握地道日语,",
@@ -244,11 +261,76 @@ const zh: Dict = {
     errorRequired: "请填写姓名、邮箱、日期与时间段",
     summaryTitle: "你的预约信息",
     timeHint: "时间为日本标准时间 (JST)",
+    pickDateFirst: "请先选择日期，可选时间段会根据当天显示。",
+    dayUnavailable: "当天暂无可预约时段。可选：周二 / 周三 / 周五 17:30–23:00，周六 15:00–23:00，周日 08:00–23:00。",
+    availability: "可预约时间：周二 / 三 / 五 17:30–23:00 · 周六 15:00–23:00 · 周日 08:00–23:00 (JST)",
+  },
+  courses: {
+    nav: "课程介绍",
+    eyebrow: "課程 · COURSES",
+    title: "我的五大课程体系",
+    subtitle: "从零基础发音到 JLPT 冲刺、再到职场敬语与商务实战，每一门课都为你量身设计。",
+    back: "← 返回首页",
+    sessionsLabel: "课程明细",
+    items: [
+      {
+        title: "1. 五十音图入门发音特训课",
+        spec: "10 节课 / 每节 2 小时 / 共 20 小时",
+        summary: "不只是教认读，重点在于发音纠偏与单词记忆。",
+        sections: [
+          { heading: "第 1 课：日语初见与元音基础", bullets: ["日语构成（平假名、片假名、汉字）与罗马音", "五个元音（あいうえお）的嘴型与舌位纠正", "单词练习：あい（爱）、いえ（家）、うえ（上）"] },
+          { heading: "第 2 课：清音第一弹（か・さ行）", bullets: ["送气音与不送气音的区别", "书写规则与记忆口诀", "单词积累：かお（脸）、きく（听）、さけ（酒）"] },
+          { heading: "第 3 课：清音第二弹（た・な・は行）", bullets: ["注意「ち、つ、ふ」的特殊发音位", "手写练习：平假名与对应片假名", "场景单词：たかい（高）、にく（肉）、ふね（船）"] },
+          { heading: "第 4 课：清音第三弹（ま・や・ら・わ行）", bullets: ["「ら」行弹舌音练习", "「わ、を、ん」的发音逻辑", "单词汇总：みみ、ゆき、さくら"] },
+          { heading: "第 5 课：浊音与半浊音", bullets: ["清浊音的变化规律与振动练习", "区分相似音（如 じ/ぢ、ず/づ）", "单词巩固：だいぶ、がんばり"] },
+          { heading: "第 6 课：拗音特训（复音结构）", bullets: ["大小字比例的书写规范", "きゅ、しゃ、ちょ等连读技巧", "趣味词汇练习"] },
+          { heading: "第 7 课：长音与促音（节奏感训练）", bullets: ["长音的延长规则（あ/い/う段）", "促音（っ）的停顿节拍", "节奏跟读练习"] },
+          { heading: "第 8 课：声调（Pitch Accent）入门", bullets: ["0 调、1 调、2 调的高低起伏逻辑", "「桥、筷子、边缘」常用词区分"] },
+          { heading: "第 9 课：片假名专项强化", bullets: ["外来语转换规律", "常见生活类片假名背诵（カメラ、パン）"] },
+          { heading: "第 10 课：综合演练与自我介绍", bullets: ["发音总复习", "撰写并朗读第一个日语自我介绍"] },
+        ],
+      },
+      {
+        title: "2. 敬语特训：打通职场任督二脉",
+        summary: "核心：分清场合，学会「换位思考」。",
+        sections: [
+          { heading: "模块一：敬语三大类", bullets: ["尊他语（Sonkeigo）：提高对方", "自谦语（Kenjougo）：降低自己", "郑重语（Teineigo）：保持距离"] },
+          { heading: "模块二：常用动词的敬语变形", bullets: ["特殊变形（如：行く → いらっしゃいます／伺います）", "接头词「お」与「ご」的使用范畴"] },
+          { heading: "模块三：常见错误纠正", bullets: ["避免二重敬语", "如何礼貌地拒绝请求"] },
+        ],
+      },
+      {
+        title: "3. 商务日语课：全场景应对",
+        summary: "核心：实操导向，拒绝「哑巴商务」。",
+        sections: [
+          { heading: "环节一：电话应对", bullets: ["接听：报上家门、确认意图、转接", "拨打：开场白、预约时间、留话叮嘱"] },
+          { heading: "环节二：接待客户", bullets: ["前台接待：寒暄、带路", "会议座次：明确「上座」与「下座」", "交换名片：正确角度与力度"] },
+          { heading: "环节三：商务邮件写作", bullets: ["格式标准：主旨、抬头、结语", "催款、道歉、邀请的模版化写作"] },
+        ],
+      },
+      {
+        title: "4. 初级口语课：生活不求人",
+        summary: "核心：句型模版化，快速开口。",
+        sections: [
+          { heading: "五大场景", bullets: ["初次见面（兴趣爱好、职业描述）", "购物达人（询问规格、砍价、退换货）", "餐厅点餐（忌口描述、分单结账）", "问路与交通（换乘咨询、步行导航）", "突发状况（医院看病、东西丢失）"] },
+        ],
+      },
+      {
+        title: "5. JLPT 冲刺课（N1 / N2 / N3）",
+        summary: "核心：套路解析，效率取胜。",
+        sections: [
+          { heading: "词汇 / 语法", bullets: ["高频考点分类（接续词、拟声拟态词）", "相似语法辨析（如：ことだ／ものだ／わけだ）"] },
+          { heading: "阅读", bullets: ["长难句拆解", "快速定位关键词，掌握作者意图"] },
+          { heading: "听力", bullets: ["信号词捕捉（可是、但是、结果是）", "题型演练（即时应答、概要理解）"] },
+          { heading: "模拟测试", bullets: ["全真模拟，分析薄弱环节并针对性查漏补缺"] },
+        ],
+      },
+    ],
   },
 };
 
 const en: Dict = {
-  nav: { about: "About", features: "Method", path: "Roadmap", contact: "Contact", trial: "Free Trial" },
+  nav: { about: "About", features: "Method", path: "Roadmap", contact: "Contact", trial: "Free Trial", courses: "Courses" },
   hero: {
     welcome: "ようこそ · WELCOME",
     title1: "Master authentic Japanese,",
@@ -378,11 +460,76 @@ const en: Dict = {
     errorRequired: "Please fill in name, email, date and time slot",
     summaryTitle: "Your booking",
     timeHint: "Times are in Japan Standard Time (JST)",
+    pickDateFirst: "Please pick a date first — available time slots appear based on the day.",
+    dayUnavailable: "No available slots on this day. Available: Tue / Wed / Fri 17:30–23:00, Sat 15:00–23:00, Sun 08:00–23:00 (JST).",
+    availability: "Availability: Tue / Wed / Fri 17:30–23:00 · Sat 15:00–23:00 · Sun 08:00–23:00 (JST)",
+  },
+  courses: {
+    nav: "Courses",
+    eyebrow: "COURSES · 課程",
+    title: "My five core courses",
+    subtitle: "From the very first kana to JLPT prep, business Japanese and keigo for the workplace — each course is built around a real goal.",
+    back: "← Back to home",
+    sessionsLabel: "Course outline",
+    items: [
+      {
+        title: "1. Gojūon Foundations & Pronunciation Bootcamp",
+        spec: "10 lessons / 2 hours each / 20 hours total",
+        summary: "Not just reading kana — the real focus is pronunciation correction and vocabulary memory.",
+        sections: [
+          { heading: "Lesson 1 — First contact and the five vowels", bullets: ["Hiragana, Katakana, Kanji and Romaji", "Mouth shape and tongue position for あいうえお", "Practice: あい, いえ, うえ"] },
+          { heading: "Lesson 2 — Seion (か / さ rows)", bullets: ["Aspirated vs unaspirated sounds", "Writing rules and memory hooks", "Words: かお, きく, さけ"] },
+          { heading: "Lesson 3 — Seion (た / な / は rows)", bullets: ["Special sounds ち, つ, ふ", "Hiragana ↔ Katakana handwriting", "Words: たかい, にく, ふね"] },
+          { heading: "Lesson 4 — Seion (ま / や / ら / わ rows)", bullets: ["Tongue-tap practice for ら-row", "Logic of わ, を, ん", "Words: みみ, ゆき, さくら"] },
+          { heading: "Lesson 5 — Dakuon and Handakuon", bullets: ["Voicing patterns and vibration drills", "Distinguishing じ/ぢ and ず/づ", "Words: だいぶ, がんばり"] },
+          { heading: "Lesson 6 — Yōon (combined sounds)", bullets: ["Small-kana proportions when writing", "Linking きゅ, しゃ, ちょ smoothly", "Fun vocabulary"] },
+          { heading: "Lesson 7 — Long vowels and sokuon (rhythm)", bullets: ["Lengthening rules for あ/い/う rows", "Timing the っ pause", "Rhythmic shadowing"] },
+          { heading: "Lesson 8 — Pitch accent basics", bullets: ["Patterns 0, 1, 2 — high/low logic", "Telling 橋 / 箸 / 端 apart"] },
+          { heading: "Lesson 9 — Katakana intensive", bullets: ["Loanword conversion rules", "Everyday katakana: カメラ, パン"] },
+          { heading: "Lesson 10 — Review and self-introduction", bullets: ["Pronunciation review", "Write and read your first Japanese self-introduction"] },
+        ],
+      },
+      {
+        title: "2. Keigo Bootcamp — Master Workplace Politeness",
+        summary: "The core idea: read the situation and shift perspective.",
+        sections: [
+          { heading: "Module 1 — Three families of keigo", bullets: ["Sonkeigo: elevate the other person", "Kenjougo: humble yourself", "Teineigo: maintain polite distance"] },
+          { heading: "Module 2 — Verb transformations", bullets: ["Special forms (e.g. 行く → いらっしゃいます / 伺います)", "How to use the prefixes お and ご"] },
+          { heading: "Module 3 — Common mistakes", bullets: ["Avoiding double keigo", "How to refuse requests politely"] },
+        ],
+      },
+      {
+        title: "3. Business Japanese — All-Scenario Toolkit",
+        summary: "Practical first — no more being a silent observer in meetings.",
+        sections: [
+          { heading: "Phone calls", bullets: ["Receiving: introduce yourself, confirm intent, transfer", "Outbound: opening, scheduling, leaving messages"] },
+          { heading: "Hosting clients", bullets: ["Reception: greetings and guiding guests", "Meeting seating: kamiza vs shimoza", "Exchanging business cards correctly"] },
+          { heading: "Business email", bullets: ["Standard format: subject, greeting, sign-off", "Templates for chasing payment, apologising, inviting"] },
+        ],
+      },
+      {
+        title: "4. Beginner Speaking — Survive Daily Life",
+        summary: "Sentence patterns you can reuse — speak from day one.",
+        sections: [
+          { heading: "Five real-life scenes", bullets: ["First meetings (hobbies, jobs)", "Shopping (sizes, bargaining, returns)", "Restaurants (allergies, splitting the bill)", "Directions and transit (transfers, walking)", "Emergencies (clinic visits, lost items)"] },
+        ],
+      },
+      {
+        title: "5. JLPT Prep (N1 / N2 / N3)",
+        summary: "Pattern-driven study — efficiency wins exams.",
+        sections: [
+          { heading: "Vocabulary / Grammar", bullets: ["High-frequency point classification (connectives, mimetics)", "Distinguishing similar grammar (ことだ / ものだ / わけだ)"] },
+          { heading: "Reading", bullets: ["Breaking down long sentences", "Locating keywords and intent quickly"] },
+          { heading: "Listening", bullets: ["Catching signal words (しかし, でも, 結局)", "Question-type drills (immediate response, gist)"] },
+          { heading: "Mock tests", bullets: ["Full-length mocks with targeted weakness analysis"] },
+        ],
+      },
+    ],
   },
 };
 
 const ja: Dict = {
-  nav: { about: "講師紹介", features: "教え方", path: "学習プラン", contact: "お問い合わせ", trial: "無料体験" },
+  nav: { about: "講師紹介", features: "教え方", path: "学習プラン", contact: "お問い合わせ", trial: "無料体験", courses: "コース紹介" },
   hero: {
     welcome: "ようこそ · WELCOME",
     title1: "本物の日本語を身につけ,",
@@ -512,11 +659,76 @@ const ja: Dict = {
     errorRequired: "お名前・メール・日付・時間帯をご入力ください",
     summaryTitle: "ご予約内容",
     timeHint: "時間はすべて日本時間 (JST) です",
+    pickDateFirst: "まず日付を選択してください。曜日に応じて空き枠が表示されます。",
+    dayUnavailable: "この日は予約可能な時間帯がありません。対応曜日：火・水・金 17:30–23:00 / 土 15:00–23:00 / 日 08:00–23:00 (JST)。",
+    availability: "ご予約可能：火・水・金 17:30–23:00 · 土 15:00–23:00 · 日 08:00–23:00 (JST)",
+  },
+  courses: {
+    nav: "コース紹介",
+    eyebrow: "コース · COURSES",
+    title: "5つのメインコース",
+    subtitle: "ゼロからの発音特訓、JLPT対策、敬語、ビジネス日本語まで、目的別に設計しています。",
+    back: "← トップへ戻る",
+    sessionsLabel: "コース内容",
+    items: [
+      {
+        title: "1. 五十音入門・発音特訓コース",
+        spec: "10回 / 1回 2時間 / 計 20 時間",
+        summary: "読み方だけでなく、発音矯正と語彙定着を重視します。",
+        sections: [
+          { heading: "第1回：日本語の概要と母音", bullets: ["ひらがな・カタカナ・漢字・ローマ字", "あいうえおの口形と舌位置", "単語：あい、いえ、うえ"] },
+          { heading: "第2回：清音 (か・さ行)", bullets: ["有気音と無気音の違い", "書き方と記憶のコツ", "単語：かお、きく、さけ"] },
+          { heading: "第3回：清音 (た・な・は行)", bullets: ["ち・つ・ふの特殊な発音", "ひらがなとカタカナの書き取り", "単語：たかい、にく、ふね"] },
+          { heading: "第4回：清音 (ま・や・ら・わ行)", bullets: ["ら行の弾き音練習", "わ・を・んの使い分け", "単語：みみ、ゆき、さくら"] },
+          { heading: "第5回：濁音と半濁音", bullets: ["清濁の規則と振動練習", "じ/ぢ、ず/づの聞き分け"] },
+          { heading: "第6回：拗音特訓", bullets: ["小書き文字の比率", "きゅ・しゃ・ちょの連音"] },
+          { heading: "第7回：長音と促音（リズム）", bullets: ["あ／い／う段の長音規則", "「っ」の停止のタイミング"] },
+          { heading: "第8回：アクセント入門", bullets: ["0型・1型・2型の抑揚", "橋／箸／端の聞き分け"] },
+          { heading: "第9回：カタカナ強化", bullets: ["外来語変換のパターン", "カメラ、パンなど日常語"] },
+          { heading: "第10回：総合演習と自己紹介", bullets: ["発音総復習", "初めての自己紹介を作って読む"] },
+        ],
+      },
+      {
+        title: "2. 敬語特訓：職場で通用する話し方",
+        summary: "場面に応じた使い分けと相手目線の表現。",
+        sections: [
+          { heading: "1. 三種の敬語", bullets: ["尊敬語（相手を高める）", "謙譲語（自分を低める）", "丁寧語（適切な距離）"] },
+          { heading: "2. 動詞の敬語変形", bullets: ["特殊形（行く→いらっしゃいます／伺います）", "「お」「ご」の使い分け"] },
+          { heading: "3. よくある誤りと修正", bullets: ["二重敬語を避ける", "丁寧に断る言い回し"] },
+        ],
+      },
+      {
+        title: "3. ビジネス日本語：実務で使える総合コース",
+        summary: "実践重視。「黙ってしまう」を卒業。",
+        sections: [
+          { heading: "電話対応", bullets: ["受電：名乗り・確認・取次", "発信：挨拶・予約・伝言"] },
+          { heading: "来客対応", bullets: ["受付・案内", "上座と下座", "名刺交換"] },
+          { heading: "ビジネスメール", bullets: ["件名・宛名・結びの定型", "督促・お詫び・招待のテンプレート"] },
+        ],
+      },
+      {
+        title: "4. 初級会話：生活で困らない日本語",
+        summary: "型を覚えて、すぐ口に出せる。",
+        sections: [
+          { heading: "5つの場面", bullets: ["初対面（趣味・職業）", "買い物（サイズ・値切り・返品）", "レストラン（アレルギー・割り勘）", "道案内・乗換", "トラブル（病院・紛失）"] },
+        ],
+      },
+      {
+        title: "5. JLPT 対策（N1 / N2 / N3）",
+        summary: "出題傾向の解析で効率よく合格へ。",
+        sections: [
+          { heading: "語彙・文法", bullets: ["頻出ポイントの分類", "ことだ／ものだ／わけだの区別"] },
+          { heading: "読解", bullets: ["長文の構造把握", "キーワードと筆者の意図"] },
+          { heading: "聴解", bullets: ["シグナル語の聞き取り（しかし・でも・結局）", "即時応答・概要理解の演習"] },
+          { heading: "模試", bullets: ["本番形式で弱点分析"] },
+        ],
+      },
+    ],
   },
 };
 
 const fr: Dict = {
-  nav: { about: "Le professeur", features: "Méthode", path: "Parcours", contact: "Contact", trial: "Cours d'essai" },
+  nav: { about: "Le professeur", features: "Méthode", path: "Parcours", contact: "Contact", trial: "Cours d'essai", courses: "Cours" },
   hero: {
     welcome: "ようこそ · BIENVENUE",
     title1: "Maîtrisez un japonais authentique,",
@@ -646,6 +858,71 @@ const fr: Dict = {
     errorRequired: "Veuillez renseigner nom, email, date et créneau",
     summaryTitle: "Votre réservation",
     timeHint: "Heures données en heure du Japon (JST)",
+    pickDateFirst: "Choisissez d'abord une date — les créneaux disponibles s'affichent selon le jour.",
+    dayUnavailable: "Aucun créneau disponible ce jour-là. Disponibilités : mar / mer / ven 17h30–23h, sam 15h–23h, dim 8h–23h (JST).",
+    availability: "Disponibilités : mar / mer / ven 17h30–23h · sam 15h–23h · dim 8h–23h (JST)",
+  },
+  courses: {
+    nav: "Cours",
+    eyebrow: "COURS · COURSES",
+    title: "Mes cinq cours principaux",
+    subtitle: "Des kana à la préparation au JLPT, du keigo au japonais des affaires — chaque cours répond à un vrai objectif.",
+    back: "← Retour à l'accueil",
+    sessionsLabel: "Programme du cours",
+    items: [
+      {
+        title: "1. Gojūon — initiation et phonétique intensive",
+        spec: "10 séances / 2 h chacune / 20 h au total",
+        summary: "Au-delà de la lecture des kana : correction de la prononciation et mémorisation du vocabulaire.",
+        sections: [
+          { heading: "Séance 1 — Premiers contacts et voyelles", bullets: ["Hiragana, Katakana, Kanji et Romaji", "Forme de la bouche pour あいうえお", "Mots : あい, いえ, うえ"] },
+          { heading: "Séance 2 — Seion (か / さ)", bullets: ["Aspirées vs non aspirées", "Règles d'écriture et astuces", "Mots : かお, きく, さけ"] },
+          { heading: "Séance 3 — Seion (た / な / は)", bullets: ["Sons spéciaux ち, つ, ふ", "Écriture hiragana ↔ katakana", "Mots : たかい, にく, ふね"] },
+          { heading: "Séance 4 — Seion (ま / や / ら / わ)", bullets: ["Roulé du ら-row", "Logique de わ, を, ん", "Mots : みみ, ゆき, さくら"] },
+          { heading: "Séance 5 — Dakuon et Handakuon", bullets: ["Sonorisation et vibrations", "Distinguer じ/ぢ et ず/づ"] },
+          { heading: "Séance 6 — Yōon (sons combinés)", bullets: ["Proportion des petits caractères", "Lier きゅ, しゃ, ちょ"] },
+          { heading: "Séance 7 — Voyelles longues et sokuon", bullets: ["Règles d'allongement", "Tempo de la pause っ"] },
+          { heading: "Séance 8 — Accent de hauteur", bullets: ["Schémas 0, 1, 2", "Distinguer 橋 / 箸 / 端"] },
+          { heading: "Séance 9 — Katakana intensif", bullets: ["Transposition des emprunts", "Mots du quotidien : カメラ, パン"] },
+          { heading: "Séance 10 — Bilan et présentation", bullets: ["Révision phonétique", "Rédiger et lire votre première présentation"] },
+        ],
+      },
+      {
+        title: "2. Keigo intensif — la politesse au travail",
+        summary: "L'idée clé : lire la situation et changer de point de vue.",
+        sections: [
+          { heading: "Trois familles de keigo", bullets: ["Sonkeigo : élever l'autre", "Kenjougo : se rabaisser", "Teineigo : maintenir la distance"] },
+          { heading: "Transformations verbales", bullets: ["Formes spéciales (行く → いらっしゃいます / 伺います)", "Préfixes お et ご"] },
+          { heading: "Erreurs fréquentes", bullets: ["Éviter le double keigo", "Refuser poliment"] },
+        ],
+      },
+      {
+        title: "3. Japonais des affaires — boîte à outils",
+        summary: "Approche pratique : finis les blocages en réunion.",
+        sections: [
+          { heading: "Au téléphone", bullets: ["Réception : se présenter, confirmer, transférer", "Émission : ouverture, prise de RDV, message"] },
+          { heading: "Recevoir un client", bullets: ["Accueil et accompagnement", "Place d'honneur (kamiza / shimoza)", "Échange de cartes de visite"] },
+          { heading: "E-mails professionnels", bullets: ["Format standard : objet, salutation, formule", "Modèles : relance, excuse, invitation"] },
+        ],
+      },
+      {
+        title: "4. Conversation débutant — la vie quotidienne",
+        summary: "Des structures réutilisables pour parler dès le premier jour.",
+        sections: [
+          { heading: "Cinq scènes du quotidien", bullets: ["Première rencontre (loisirs, métier)", "Shopping (taille, marchander, retours)", "Restaurant (allergies, addition partagée)", "Direction et transports", "Urgences (clinique, objet perdu)"] },
+        ],
+      },
+      {
+        title: "5. Préparation au JLPT (N1 / N2 / N3)",
+        summary: "Travail par schémas — l'efficacité prime.",
+        sections: [
+          { heading: "Vocabulaire / Grammaire", bullets: ["Classification des points fréquents", "Distinguer ことだ / ものだ / わけだ"] },
+          { heading: "Compréhension écrite", bullets: ["Décomposer les longues phrases", "Repérer mots-clés et intention"] },
+          { heading: "Compréhension orale", bullets: ["Mots signaux (しかし, でも, 結局)", "Entraînement par type de question"] },
+          { heading: "Examens blancs", bullets: ["Simulation complète avec analyse des points faibles"] },
+        ],
+      },
+    ],
   },
 };
 

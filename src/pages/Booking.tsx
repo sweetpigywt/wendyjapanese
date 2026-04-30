@@ -13,19 +13,41 @@ import { useI18n } from "@/i18n/i18n";
 import { supabase } from "@/integrations/supabase/client";
 import wendyLogo from "@/assets/wendy-logo.png";
 
-// Available time slots (JST). Edit freely.
-const TIME_SLOTS = [
-  "09:00 – 10:00",
-  "10:00 – 11:00",
-  "11:00 – 12:00",
-  "13:00 – 14:00",
-  "14:00 – 15:00",
-  "15:00 – 16:00",
-  "16:00 – 17:00",
-  "19:00 – 20:00",
-  "20:00 – 21:00",
-  "21:00 – 22:00",
-];
+// Generate hourly slots from a start "HH:MM" to end "HH:MM"
+const buildSlots = (startHHMM: string, endHHMM: string) => {
+  const [sh, sm] = startHHMM.split(":").map(Number);
+  const [eh, em] = endHHMM.split(":").map(Number);
+  const start = sh * 60 + sm;
+  const end = eh * 60 + em;
+  const out: string[] = [];
+  for (let t = start; t + 60 <= end; t += 60) {
+    const h1 = String(Math.floor(t / 60)).padStart(2, "0");
+    const m1 = String(t % 60).padStart(2, "0");
+    const h2 = String(Math.floor((t + 60) / 60)).padStart(2, "0");
+    const m2 = String((t + 60) % 60).padStart(2, "0");
+    out.push(`${h1}:${m1} – ${h2}:${m2}`);
+  }
+  return out;
+};
+
+// Availability by JS day-of-week (0=Sun..6=Sat). All times JST.
+// Tue/Wed/Fri: 17:30–23:00 · Sat: 15:00–23:00 · Sun: 08:00–23:00.
+// 17:30–23:00 yields 5 hourly slots starting from 17:30; we offer 18:00–23:00 hourly.
+const AVAILABILITY: Record<number, string[]> = {
+  0: buildSlots("08:00", "23:00"), // Sunday
+  2: ["17:30 – 18:30", ...buildSlots("18:30", "23:00")], // Tuesday
+  3: ["17:30 – 18:30", ...buildSlots("18:30", "23:00")], // Wednesday
+  5: ["17:30 – 18:30", ...buildSlots("18:30", "23:00")], // Friday
+  6: buildSlots("15:00", "23:00"), // Saturday
+};
+
+const getSlotsForDate = (isoDate: string): string[] => {
+  if (!isoDate) return [];
+  // Parse as local date to keep day-of-week stable
+  const [y, m, d] = isoDate.split("-").map(Number);
+  const dt = new Date(y, (m || 1) - 1, d || 1);
+  return AVAILABILITY[dt.getDay()] ?? [];
+};
 
 const Booking = () => {
   const { t, lang } = useI18n();
@@ -166,38 +188,58 @@ const Booking = () => {
                     min={today}
                     max={maxDate}
                     value={form.date}
-                    onChange={(e) => setForm({ ...form, date: e.target.value })}
+                    onChange={(e) => setForm({ ...form, date: e.target.value, time: "" })}
                     className="border-border bg-background"
                     required
                   />
                 </div>
                 <div>
                   <label className="mb-2 block text-xs tracking-wider text-muted-foreground">{t.booking.time}</label>
-                  <p className="mb-2 text-[10px] tracking-wider text-muted-foreground">{t.booking.timeHint}</p>
+                  <p className="mb-1 text-[10px] tracking-wider text-muted-foreground">{t.booking.timeHint}</p>
+                  <p className="text-[10px] leading-relaxed tracking-wider text-sakura">{t.booking.availability}</p>
                 </div>
               </div>
 
-              {/* Time slot grid */}
-              <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-5">
-                {TIME_SLOTS.map((slot) => {
-                  const active = form.time === slot;
+              {/* Time slot grid — depends on selected date */}
+              {(() => {
+                const slots = getSlotsForDate(form.date);
+                if (!form.date) {
                   return (
-                    <button
-                      type="button"
-                      key={slot}
-                      onClick={() => setForm({ ...form, time: slot })}
-                      className={
-                        "rounded-lg border px-3 py-2 text-sm font-medium transition-all " +
-                        (active
-                          ? "border-sakura bg-sakura text-primary-foreground shadow-soft"
-                          : "border-border bg-background text-sumi hover:border-sakura hover:text-sakura")
-                      }
-                    >
-                      {slot}
-                    </button>
+                    <p className="rounded-lg border border-dashed border-border bg-background/50 p-4 text-center text-xs text-muted-foreground">
+                      {t.booking.pickDateFirst}
+                    </p>
                   );
-                })}
-              </div>
+                }
+                if (slots.length === 0) {
+                  return (
+                    <p className="rounded-lg border border-dashed border-sakura/40 bg-sakura/5 p-4 text-center text-xs text-sakura">
+                      {t.booking.dayUnavailable}
+                    </p>
+                  );
+                }
+                return (
+                  <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-5">
+                    {slots.map((slot) => {
+                      const active = form.time === slot;
+                      return (
+                        <button
+                          type="button"
+                          key={slot}
+                          onClick={() => setForm({ ...form, time: slot })}
+                          className={
+                            "rounded-lg border px-3 py-2 text-sm font-medium transition-all " +
+                            (active
+                              ? "border-sakura bg-sakura text-primary-foreground shadow-soft"
+                              : "border-border bg-background text-sumi hover:border-sakura hover:text-sakura")
+                          }
+                        >
+                          {slot}
+                        </button>
+                      );
+                    })}
+                  </div>
+                );
+              })()}
 
               <div>
                 <label className="mb-2 block text-xs tracking-wider text-muted-foreground">{t.booking.notes}</label>
