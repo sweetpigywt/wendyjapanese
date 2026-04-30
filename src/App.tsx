@@ -9,6 +9,7 @@ import Payments from "./pages/Payments.tsx";
 import Booking from "./pages/Booking.tsx";
 import Courses from "./pages/Courses.tsx";
 import { I18nProvider } from "./i18n/i18n";
+import { BackToTop } from "@/components/BackToTop";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <BackToTop />
         </BrowserRouter>
       </TooltipProvider>
     </I18nProvider>
