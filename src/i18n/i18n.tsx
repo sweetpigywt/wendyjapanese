@@ -91,6 +91,26 @@ type Dict = {
     methods: { paypal: string; paypay: string; wechat: string; alipay: string; wise: string };
     descriptions: { paypal: string; paypay: string; wechat: string; alipay: string; wise: string };
   };
+  booking: {
+    nav: string;
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    back: string;
+    name: string;
+    email: string;
+    contactLabel: string;
+    contactPh: string;
+    date: string;
+    time: string;
+    notes: string;
+    notesPh: string;
+    submit: string;
+    success: string;
+    errorRequired: string;
+    summaryTitle: string;
+    timeHint: string;
+  };
 };
 
 const zh: Dict = {
@@ -204,6 +224,26 @@ const zh: Dict = {
       alipay: "支持中国大陆与多国支付宝，扫码完成转账。",
       wise: "国际汇款首选，费率低、到账快。",
     },
+  },
+  booking: {
+    nav: "预约试听",
+    eyebrow: "予約 · 预约试听",
+    title: "预约一节免费试听课",
+    subtitle: "请选择你方便的日期与时间段，提交后老师会尽快与你确认。",
+    back: "← 返回首页",
+    name: "姓名",
+    email: "邮箱",
+    contactLabel: "联系方式（微信 / LINE / WhatsApp）",
+    contactPh: "便于老师联系你的账号",
+    date: "希望的日期",
+    time: "希望的时间段",
+    notes: "备注（当前水平、想达到的目标…）",
+    notesPh: "选填",
+    submit: "提交预约",
+    success: "预约已提交！老师会尽快与你确认 ✿",
+    errorRequired: "请填写姓名、邮箱、日期与时间段",
+    summaryTitle: "你的预约信息",
+    timeHint: "时间为日本标准时间 (JST)",
   },
 };
 
@@ -319,6 +359,26 @@ const en: Dict = {
       wise: "Best for international transfers — low fees, fast settlement.",
     },
   },
+  booking: {
+    nav: "Book a trial",
+    eyebrow: "BOOKING · 予約",
+    title: "Book a free trial lesson",
+    subtitle: "Pick a date and time slot that works for you — I'll confirm shortly.",
+    back: "← Back to home",
+    name: "Name",
+    email: "Email",
+    contactLabel: "Contact (WeChat / LINE / WhatsApp)",
+    contactPh: "Best handle to reach you",
+    date: "Preferred date",
+    time: "Preferred time slot",
+    notes: "Notes (your level, your goals…)",
+    notesPh: "Optional",
+    submit: "Submit booking",
+    success: "Booking received! I'll confirm shortly ✿",
+    errorRequired: "Please fill in name, email, date and time slot",
+    summaryTitle: "Your booking",
+    timeHint: "Times are in Japan Standard Time (JST)",
+  },
 };
 
 const ja: Dict = {
@@ -433,6 +493,26 @@ const ja: Dict = {
       wise: "国際送金に最適。手数料が安く、着金も早いです。",
     },
   },
+  booking: {
+    nav: "体験予約",
+    eyebrow: "予約 · BOOKING",
+    title: "無料体験レッスンを予約する",
+    subtitle: "ご希望の日時を選んで送信してください。確認次第ご連絡します。",
+    back: "← トップへ戻る",
+    name: "お名前",
+    email: "メールアドレス",
+    contactLabel: "ご連絡先（WeChat / LINE / WhatsApp）",
+    contactPh: "連絡しやすいアカウント",
+    date: "ご希望の日付",
+    time: "ご希望の時間帯",
+    notes: "備考（現在のレベル、目標など）",
+    notesPh: "任意",
+    submit: "予約を送信",
+    success: "予約を受け付けました！まもなくご連絡します ✿",
+    errorRequired: "お名前・メール・日付・時間帯をご入力ください",
+    summaryTitle: "ご予約内容",
+    timeHint: "時間はすべて日本時間 (JST) です",
+  },
 };
 
 const fr: Dict = {
@@ -546,6 +626,26 @@ const fr: Dict = {
       alipay: "Disponible en Chine continentale et dans de nombreux pays — scannez le QR.",
       wise: "Idéal pour les virements internationaux — frais bas, exécution rapide.",
     },
+  },
+  booking: {
+    nav: "Réserver",
+    eyebrow: "RÉSERVATION · 予約",
+    title: "Réserver un cours d'essai gratuit",
+    subtitle: "Choisissez la date et le créneau qui vous conviennent — je confirme rapidement.",
+    back: "← Retour à l'accueil",
+    name: "Nom",
+    email: "Email",
+    contactLabel: "Contact (WeChat / LINE / WhatsApp)",
+    contactPh: "Le meilleur moyen de vous joindre",
+    date: "Date souhaitée",
+    time: "Créneau horaire souhaité",
+    notes: "Notes (niveau actuel, objectifs…)",
+    notesPh: "Facultatif",
+    submit: "Envoyer la réservation",
+    success: "Réservation reçue ! Je confirme rapidement ✿",
+    errorRequired: "Veuillez renseigner nom, email, date et créneau",
+    summaryTitle: "Votre réservation",
+    timeHint: "Heures données en heure du Japon (JST)",
   },
 };
 

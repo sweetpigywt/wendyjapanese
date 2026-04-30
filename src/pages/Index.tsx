@@ -85,12 +85,13 @@ const Index = () => {
           <a href="#features" className="transition-colors hover:text-sakura">{t.nav.features}</a>
           <a href="#path" className="transition-colors hover:text-sakura">{t.nav.path}</a>
           <a href="#contact" className="transition-colors hover:text-sakura">{t.nav.contact}</a>
+          <a href="/booking" className="transition-colors hover:text-sakura">{t.booking.nav}</a>
           <a href="/payments" className="transition-colors hover:text-sakura">{t.payments.nav}</a>
         </nav>
         <div className="flex items-center gap-3">
           <LanguageSwitcher variant="header" />
           <Button asChild className="hidden bg-sakura text-primary-foreground hover:bg-sakura/90 md:inline-flex">
-            <a href="#contact">{t.nav.trial} <ArrowRight className="ml-1 h-4 w-4" /></a>
+            <a href="/booking">{t.nav.trial} <ArrowRight className="ml-1 h-4 w-4" /></a>
           </Button>
         </div>
       </header>
@@ -112,7 +113,7 @@ const Index = () => {
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button size="lg" className="bg-sakura text-primary-foreground shadow-soft hover:bg-sakura/90" asChild>
-                <a href="#contact">{t.hero.ctaPrimary}</a>
+                <a href="/booking">{t.hero.ctaPrimary}</a>
               </Button>
               <Button size="lg" variant="outline" className="border-sumi/20" asChild>
                 <a href="#path">{t.hero.ctaSecondary}</a>
