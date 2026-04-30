@@ -3,7 +3,7 @@ import { createContext, useContext, useState, useEffect, ReactNode } from "react
 export type Lang = "zh" | "en" | "ja" | "fr";
 
 type Dict = {
-  nav: { about: string; features: string; path: string; contact: string; trial: string };
+  nav: { about: string; features: string; path: string; contact: string; trial: string; courses: string };
   hero: {
     welcome: string;
     title1: string;
@@ -110,6 +110,23 @@ type Dict = {
     errorRequired: string;
     summaryTitle: string;
     timeHint: string;
+    pickDateFirst: string;
+    dayUnavailable: string;
+    availability: string;
+  };
+  courses: {
+    nav: string;
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    back: string;
+    sessionsLabel: string;
+    items: {
+      title: string;
+      spec?: string;
+      summary?: string;
+      sections: { heading: string; bullets: string[] }[];
+    }[];
   };
 };
 
