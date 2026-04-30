@@ -15,7 +15,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['"Noto Sans JP"', 'system-ui', 'sans-serif'],
-        serif: ['"Noto Serif JP"', 'serif'],
+        serif: ['"Noto Sans JP"', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
         'gradient-sakura': 'var(--gradient-sakura)',
