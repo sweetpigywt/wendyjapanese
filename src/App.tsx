@@ -7,6 +7,7 @@ import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import Payments from "./pages/Payments.tsx";
 import Booking from "./pages/Booking.tsx";
+import Courses from "./pages/Courses.tsx";
 import { I18nProvider } from "./i18n/i18n";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/payments" element={<Payments />} />
             <Route path="/booking" element={<Booking />} />
+            <Route path="/courses" element={<Courses />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
