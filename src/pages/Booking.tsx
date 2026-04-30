@@ -195,7 +195,8 @@ const Booking = () => {
                 </div>
                 <div>
                   <label className="mb-2 block text-xs tracking-wider text-muted-foreground">{t.booking.time}</label>
-                  <p className="mb-2 text-[10px] tracking-wider text-muted-foreground">{t.booking.timeHint}</p>
+                  <p className="mb-1 text-[10px] tracking-wider text-muted-foreground">{t.booking.timeHint}</p>
+                  <p className="text-[10px] leading-relaxed tracking-wider text-sakura">{t.booking.availability}</p>
                 </div>
               </div>
 
