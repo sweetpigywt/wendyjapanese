@@ -126,7 +126,7 @@ const Booking = () => {
       setForm({ name: "", email: "", contact: "", date: "", time: "", notes: "" });
     } catch (err) {
       console.error(err);
-      toast.error(t.booking.errorRequired);
+      toast.error(t.booking.errorSubmit);
     } finally {
       setSubmitting(false);
     }
