@@ -188,7 +188,7 @@ const Booking = () => {
                     min={today}
                     max={maxDate}
                     value={form.date}
-                    onChange={(e) => setForm({ ...form, date: e.target.value })}
+                    onChange={(e) => setForm({ ...form, date: e.target.value, time: "" })}
                     className="border-border bg-background"
                     required
                   />
