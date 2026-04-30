@@ -38,6 +38,42 @@ export type Database = {
         }
         Relationships: []
       }
+      trial_bookings: {
+        Row: {
+          contact: string | null
+          created_at: string
+          email: string
+          id: string
+          lang: string | null
+          name: string
+          notes: string | null
+          preferred_date: string
+          preferred_time: string
+        }
+        Insert: {
+          contact?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          lang?: string | null
+          name: string
+          notes?: string | null
+          preferred_date: string
+          preferred_time: string
+        }
+        Update: {
+          contact?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          lang?: string | null
+          name?: string
+          notes?: string | null
+          preferred_date?: string
+          preferred_time?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
