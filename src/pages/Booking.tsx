@@ -199,27 +199,46 @@ const Booking = () => {
                 </div>
               </div>
 
-              {/* Time slot grid */}
-              <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-5">
-                {TIME_SLOTS.map((slot) => {
-                  const active = form.time === slot;
+              {/* Time slot grid — depends on selected date */}
+              {(() => {
+                const slots = getSlotsForDate(form.date);
+                if (!form.date) {
                   return (
-                    <button
-                      type="button"
-                      key={slot}
-                      onClick={() => setForm({ ...form, time: slot })}
-                      className={
-                        "rounded-lg border px-3 py-2 text-sm font-medium transition-all " +
-                        (active
-                          ? "border-sakura bg-sakura text-primary-foreground shadow-soft"
-                          : "border-border bg-background text-sumi hover:border-sakura hover:text-sakura")
-                      }
-                    >
-                      {slot}
-                    </button>
+                    <p className="rounded-lg border border-dashed border-border bg-background/50 p-4 text-center text-xs text-muted-foreground">
+                      {t.booking.pickDateFirst}
+                    </p>
                   );
-                })}
-              </div>
+                }
+                if (slots.length === 0) {
+                  return (
+                    <p className="rounded-lg border border-dashed border-sakura/40 bg-sakura/5 p-4 text-center text-xs text-sakura">
+                      {t.booking.dayUnavailable}
+                    </p>
+                  );
+                }
+                return (
+                  <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-5">
+                    {slots.map((slot) => {
+                      const active = form.time === slot;
+                      return (
+                        <button
+                          type="button"
+                          key={slot}
+                          onClick={() => setForm({ ...form, time: slot })}
+                          className={
+                            "rounded-lg border px-3 py-2 text-sm font-medium transition-all " +
+                            (active
+                              ? "border-sakura bg-sakura text-primary-foreground shadow-soft"
+                              : "border-border bg-background text-sumi hover:border-sakura hover:text-sakura")
+                          }
+                        >
+                          {slot}
+                        </button>
+                      );
+                    })}
+                  </div>
+                );
+              })()}
 
               <div>
                 <label className="mb-2 block text-xs tracking-wider text-muted-foreground">{t.booking.notes}</label>
