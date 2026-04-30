@@ -566,22 +566,62 @@ interface I18nCtx {
 
 const Ctx = createContext<I18nCtx | null>(null);
 
+const detectFromBrowser = (): Lang => {
+  if (typeof navigator === "undefined") return "en";
+  const langs = [navigator.language, ...(navigator.languages || [])].map((l) => l.toLowerCase());
+  for (const l of langs) {
+    if (l.startsWith("ja")) return "ja";
+    if (l.startsWith("fr")) return "fr";
+    // Only Traditional Chinese (TW / HK / MO) maps to zh per spec
+    if (l === "zh-tw" || l === "zh-hk" || l === "zh-mo" || l.startsWith("zh-hant")) return "zh";
+  }
+  return "en";
+};
+
+const detectFromCountry = (country: string): Lang | null => {
+  const c = country.toUpperCase();
+  if (c === "JP") return "ja";
+  if (c === "TW" || c === "HK" || c === "MO") return "zh";
+  if (c === "FR") return "fr";
+  return "en";
+};
+
 export const I18nProvider = ({ children }: { children: ReactNode }) => {
   const [lang, setLangState] = useState<Lang>(() => {
-    if (typeof window === "undefined") return "zh";
+    if (typeof window === "undefined") return "en";
     const saved = localStorage.getItem("lang") as Lang | null;
     if (saved && dictionaries[saved]) return saved;
-    const nav = navigator.language.toLowerCase();
-    if (nav.startsWith("ja")) return "ja";
-    if (nav.startsWith("fr")) return "fr";
-    if (nav.startsWith("en")) return "en";
-    return "zh";
+    return detectFromBrowser();
   });
+
+  // Refine via IP geolocation on first visit (no saved preference)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (localStorage.getItem("lang")) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch("https://ipapi.co/json/", { cache: "no-store" });
+        if (!res.ok) return;
+        const data = await res.json();
+        const country: string | undefined = data?.country_code || data?.country;
+        if (!country || cancelled) return;
+        const detected = detectFromCountry(country);
+        if (detected) {
+          setLangState(detected);
+          document.documentElement.lang = detected === "zh" ? "zh-TW" : detected;
+        }
+      } catch {
+        /* network blocked — keep browser-based fallback */
+      }
+    })();
+    return () => { cancelled = true; };
+  }, []);
 
   const setLang = (l: Lang) => {
     setLangState(l);
     try { localStorage.setItem("lang", l); } catch {}
-    document.documentElement.lang = l === "zh" ? "zh-CN" : l;
+    document.documentElement.lang = l === "zh" ? "zh-TW" : l;
   };
 
   return <Ctx.Provider value={{ lang, setLang, t: dictionaries[lang] }}>{children}</Ctx.Provider>;
