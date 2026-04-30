@@ -85,6 +85,7 @@ const Index = () => {
           <a href="#features" className="transition-colors hover:text-sakura">{t.nav.features}</a>
           <a href="#path" className="transition-colors hover:text-sakura">{t.nav.path}</a>
           <a href="#contact" className="transition-colors hover:text-sakura">{t.nav.contact}</a>
+          <a href="/payments" className="transition-colors hover:text-sakura">{t.payments.nav}</a>
         </nav>
         <div className="flex items-center gap-3">
           <LanguageSwitcher variant="header" />
