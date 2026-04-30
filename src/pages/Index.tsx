@@ -22,6 +22,7 @@ import { toast } from "sonner";
 import { Reveal } from "@/components/Reveal";
 import { Petals } from "@/components/Petals";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { BackToTop } from "@/components/BackToTop";
 import { useI18n } from "@/i18n/i18n";
 import { supabase } from "@/integrations/supabase/client";
 import sensei from "@/assets/sensei.jpg";
@@ -498,6 +499,7 @@ const Index = () => {
       <footer className="relative z-10 border-t border-border/60 py-10">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-5 px-6 text-center text-xs text-muted-foreground">
           <LanguageSwitcher variant="footer" />
+          <BackToTop />
           <div>© {new Date().getFullYear()} {t.footer}</div>
         </div>
       </footer>
