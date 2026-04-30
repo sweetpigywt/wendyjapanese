@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 export type Lang = "zh" | "en" | "ja" | "fr";
 
@@ -77,6 +77,20 @@ type Dict = {
   };
   footer: string;
   langLabel: string;
+  payments: {
+    nav: string;
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    back: string;
+    scanQr: string;
+    openLink: string;
+    copy: string;
+    copied: string;
+    note: string;
+    methods: { paypal: string; paypay: string; wechat: string; alipay: string; wise: string };
+    descriptions: { paypal: string; paypay: string; wechat: string; alipay: string; wise: string };
+  };
 };
 
 const zh: Dict = {
