@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 export type Lang = "zh" | "en" | "ja" | "fr";
 
@@ -77,6 +77,20 @@ type Dict = {
   };
   footer: string;
   langLabel: string;
+  payments: {
+    nav: string;
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    back: string;
+    scanQr: string;
+    openLink: string;
+    copy: string;
+    copied: string;
+    note: string;
+    methods: { paypal: string; paypay: string; wechat: string; alipay: string; wise: string };
+    descriptions: { paypal: string; paypay: string; wechat: string; alipay: string; wise: string };
+  };
 };
 
 const zh: Dict = {
@@ -171,6 +185,26 @@ const zh: Dict = {
   },
   footer: "Wendy 日语学堂 · Made with ♥ in 福岡",
   langLabel: "语言",
+  payments: {
+    nav: "付款方式",
+    eyebrow: "支付 · PAYMENT",
+    title: "付款方式",
+    subtitle: "支持多种国际与本地支付渠道，请选择最方便你的方式。",
+    back: "← 返回首页",
+    scanQr: "扫码支付",
+    openLink: "打开链接",
+    copy: "复制",
+    copied: "已复制",
+    note: "完成付款后请将截图发送给老师，我会尽快确认。",
+    methods: { paypal: "PayPal", paypay: "PayPay", wechat: "微信支付", alipay: "支付宝", wise: "Wise" },
+    descriptions: {
+      paypal: "适合海外学员，使用 PayPal 邮箱地址完成转账。",
+      paypay: "日本本地最便捷的支付方式，扫码即可。",
+      wechat: "中国大陆学员推荐，微信扫码即可付款。",
+      alipay: "支持中国大陆与多国支付宝，扫码完成转账。",
+      wise: "国际汇款首选，费率低、到账快。",
+    },
+  },
 };
 
 const en: Dict = {
@@ -265,6 +299,26 @@ const en: Dict = {
   },
   footer: "Wendy Japanese Studio · Made with ♥ in Fukuoka",
   langLabel: "Language",
+  payments: {
+    nav: "Payment",
+    eyebrow: "PAYMENT · 支払い",
+    title: "Payment methods",
+    subtitle: "Multiple international and local payment options — pick whichever works best for you.",
+    back: "← Back to home",
+    scanQr: "Scan to pay",
+    openLink: "Open link",
+    copy: "Copy",
+    copied: "Copied",
+    note: "Please send me a screenshot once paid and I'll confirm shortly.",
+    methods: { paypal: "PayPal", paypay: "PayPay", wechat: "WeChat Pay", alipay: "Alipay", wise: "Wise" },
+    descriptions: {
+      paypal: "Best for international students — pay via PayPal email.",
+      paypay: "The easiest local option in Japan — just scan the QR code.",
+      wechat: "Recommended for students in mainland China — scan to pay.",
+      alipay: "Works across mainland China and many countries — scan the QR.",
+      wise: "Best for international transfers — low fees, fast settlement.",
+    },
+  },
 };
 
 const ja: Dict = {
@@ -359,6 +413,26 @@ const ja: Dict = {
   },
   footer: "Wendy 日本語スタジオ · Made with ♥ in 福岡",
   langLabel: "言語",
+  payments: {
+    nav: "お支払い",
+    eyebrow: "PAYMENT · お支払い",
+    title: "お支払い方法",
+    subtitle: "複数の国際・国内決済に対応。ご都合の良い方法をお選びください。",
+    back: "← トップへ戻る",
+    scanQr: "QRで支払う",
+    openLink: "リンクを開く",
+    copy: "コピー",
+    copied: "コピーしました",
+    note: "お支払い後、スクリーンショットをお送りください。確認次第ご連絡します。",
+    methods: { paypal: "PayPal", paypay: "PayPay", wechat: "WeChat Pay", alipay: "Alipay", wise: "Wise" },
+    descriptions: {
+      paypal: "海外の生徒さんにおすすめ。PayPalのメール宛に送金できます。",
+      paypay: "日本国内で最も手軽な決済方法。QRを読み取るだけ。",
+      wechat: "中国本土の生徒さんに最適。WeChatでQRを読み取って決済。",
+      alipay: "中国本土および各国で利用可能。QRコードでお支払い。",
+      wise: "国際送金に最適。手数料が安く、着金も早いです。",
+    },
+  },
 };
 
 const fr: Dict = {
@@ -453,6 +527,26 @@ const fr: Dict = {
   },
   footer: "Wendy Studio de japonais · Made with ♥ à Fukuoka",
   langLabel: "Langue",
+  payments: {
+    nav: "Paiement",
+    eyebrow: "PAIEMENT · 支払い",
+    title: "Moyens de paiement",
+    subtitle: "Plusieurs options de paiement internationales et locales — choisissez celle qui vous convient.",
+    back: "← Retour à l'accueil",
+    scanQr: "Scanner pour payer",
+    openLink: "Ouvrir le lien",
+    copy: "Copier",
+    copied: "Copié",
+    note: "Envoyez-moi une capture d'écran après paiement, je confirmerai rapidement.",
+    methods: { paypal: "PayPal", paypay: "PayPay", wechat: "WeChat Pay", alipay: "Alipay", wise: "Wise" },
+    descriptions: {
+      paypal: "Idéal à l'international — payez via l'email PayPal.",
+      paypay: "L'option la plus simple au Japon — il suffit de scanner.",
+      wechat: "Recommandé pour les élèves en Chine continentale — scannez pour payer.",
+      alipay: "Disponible en Chine continentale et dans de nombreux pays — scannez le QR.",
+      wise: "Idéal pour les virements internationaux — frais bas, exécution rapide.",
+    },
+  },
 };
 
 const dictionaries: Record<Lang, Dict> = { zh, en, ja, fr };
@@ -472,22 +566,62 @@ interface I18nCtx {
 
 const Ctx = createContext<I18nCtx | null>(null);
 
+const detectFromBrowser = (): Lang => {
+  if (typeof navigator === "undefined") return "en";
+  const langs = [navigator.language, ...(navigator.languages || [])].map((l) => l.toLowerCase());
+  for (const l of langs) {
+    if (l.startsWith("ja")) return "ja";
+    if (l.startsWith("fr")) return "fr";
+    // Only Traditional Chinese (TW / HK / MO) maps to zh per spec
+    if (l === "zh-tw" || l === "zh-hk" || l === "zh-mo" || l.startsWith("zh-hant")) return "zh";
+  }
+  return "en";
+};
+
+const detectFromCountry = (country: string): Lang | null => {
+  const c = country.toUpperCase();
+  if (c === "JP") return "ja";
+  if (c === "TW" || c === "HK" || c === "MO") return "zh";
+  if (c === "FR") return "fr";
+  return "en";
+};
+
 export const I18nProvider = ({ children }: { children: ReactNode }) => {
   const [lang, setLangState] = useState<Lang>(() => {
-    if (typeof window === "undefined") return "zh";
+    if (typeof window === "undefined") return "en";
     const saved = localStorage.getItem("lang") as Lang | null;
     if (saved && dictionaries[saved]) return saved;
-    const nav = navigator.language.toLowerCase();
-    if (nav.startsWith("ja")) return "ja";
-    if (nav.startsWith("fr")) return "fr";
-    if (nav.startsWith("en")) return "en";
-    return "zh";
+    return detectFromBrowser();
   });
+
+  // Refine via IP geolocation on first visit (no saved preference)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (localStorage.getItem("lang")) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch("https://ipapi.co/json/", { cache: "no-store" });
+        if (!res.ok) return;
+        const data = await res.json();
+        const country: string | undefined = data?.country_code || data?.country;
+        if (!country || cancelled) return;
+        const detected = detectFromCountry(country);
+        if (detected) {
+          setLangState(detected);
+          document.documentElement.lang = detected === "zh" ? "zh-TW" : detected;
+        }
+      } catch {
+        /* network blocked — keep browser-based fallback */
+      }
+    })();
+    return () => { cancelled = true; };
+  }, []);
 
   const setLang = (l: Lang) => {
     setLangState(l);
     try { localStorage.setItem("lang", l); } catch {}
-    document.documentElement.lang = l === "zh" ? "zh-CN" : l;
+    document.documentElement.lang = l === "zh" ? "zh-TW" : l;
   };
 
   return <Ctx.Provider value={{ lang, setLang, t: dictionaries[lang] }}>{children}</Ctx.Provider>;
