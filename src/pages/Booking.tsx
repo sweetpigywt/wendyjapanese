@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import { Reveal } from "@/components/Reveal";
 import { Petals } from "@/components/Petals";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { BackToTop } from "@/components/BackToTop";
 import { useI18n } from "@/i18n/i18n";
 import { supabase } from "@/integrations/supabase/client";
 import wendyLogo from "@/assets/wendy-logo.png";
@@ -100,19 +101,32 @@ const Booking = () => {
         `Lang: ${lang}\n\n` +
         `Notes:\n${form.notes || "—"}`;
 
-      try {
-        await supabase.functions.invoke("send-contact-email", {
-          body: { name: form.name, email: form.email, message: composedMessage },
-        });
-      } catch {
-        /* email best-effort */
+      const { error: emailError } = await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "trial-booking-notification",
+          recipientEmail: "wenty_y@hotmail.com",
+          idempotencyKey: `trial-booking-notification-${id}`,
+          templateData: {
+            name: form.name,
+            email: form.email,
+            contact: form.contact || "—",
+            date: form.date,
+            time: form.time,
+            notes: form.notes || "—",
+            lang,
+            message: composedMessage,
+          },
+        },
+      });
+      if (emailError) {
+        throw emailError;
       }
 
       toast.success(t.booking.success);
       setForm({ name: "", email: "", contact: "", date: "", time: "", notes: "" });
     } catch (err) {
       console.error(err);
-      toast.error(t.booking.errorRequired);
+      toast.error(t.booking.errorSubmit);
     } finally {
       setSubmitting(false);
     }
@@ -278,6 +292,7 @@ const Booking = () => {
       <footer className="relative z-10 border-t border-border/60 py-10">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-5 px-6 text-center text-xs text-muted-foreground">
           <LanguageSwitcher variant="footer" />
+          <BackToTop />
           <div>© {new Date().getFullYear()} {t.footer}</div>
         </div>
       </footer>

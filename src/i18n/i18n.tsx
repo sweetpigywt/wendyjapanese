@@ -3,6 +3,8 @@ import { createContext, useContext, useState, useEffect, ReactNode } from "react
 export type Lang = "zh" | "en" | "ja" | "fr";
 
 type Dict = {
+  siteTitle: string;
+  backToTop: string;
   nav: { about: string; features: string; path: string; contact: string; trial: string; courses: string };
   hero: {
     welcome: string;
@@ -108,6 +110,7 @@ type Dict = {
     submit: string;
     success: string;
     errorRequired: string;
+    errorSubmit: string;
     summaryTitle: string;
     timeHint: string;
     pickDateFirst: string;
@@ -131,6 +134,8 @@ type Dict = {
 };
 
 const zh: Dict = {
+  siteTitle: "Wendy老师的日语课堂",
+  backToTop: "返回顶部",
   nav: { about: "老师介绍", features: "教学特色", path: "学习路径", contact: "联系方式", trial: "免费试听", courses: "课程介绍" },
   hero: {
     welcome: "ようこそ · 欢迎",
@@ -259,6 +264,7 @@ const zh: Dict = {
     submit: "提交预约",
     success: "预约已提交！老师会尽快与你确认 ✿",
     errorRequired: "请填写姓名、邮箱、日期与时间段",
+    errorSubmit: "预约未发送成功，请稍后再试或直接联系老师。",
     summaryTitle: "你的预约信息",
     timeHint: "时间为日本标准时间 (JST)",
     pickDateFirst: "请先选择日期，可选时间段会根据当天显示。",
@@ -330,6 +336,8 @@ const zh: Dict = {
 };
 
 const en: Dict = {
+  siteTitle: "Wendy Sensei's Japanese Classroom",
+  backToTop: "Back to top",
   nav: { about: "About", features: "Method", path: "Roadmap", contact: "Contact", trial: "Free Trial", courses: "Courses" },
   hero: {
     welcome: "ようこそ · WELCOME",
@@ -458,6 +466,7 @@ const en: Dict = {
     submit: "Submit booking",
     success: "Booking received! I'll confirm shortly ✿",
     errorRequired: "Please fill in name, email, date and time slot",
+    errorSubmit: "Booking could not be sent. Please try again later or contact me directly.",
     summaryTitle: "Your booking",
     timeHint: "Times are in Japan Standard Time (JST)",
     pickDateFirst: "Please pick a date first — available time slots appear based on the day.",
@@ -529,6 +538,8 @@ const en: Dict = {
 };
 
 const ja: Dict = {
+  siteTitle: "Wendy先生の日本語教室",
+  backToTop: "トップへ戻る",
   nav: { about: "講師紹介", features: "教え方", path: "学習プラン", contact: "お問い合わせ", trial: "無料体験", courses: "コース紹介" },
   hero: {
     welcome: "ようこそ · WELCOME",
@@ -657,6 +668,7 @@ const ja: Dict = {
     submit: "予約を送信",
     success: "予約を受け付けました！まもなくご連絡します ✿",
     errorRequired: "お名前・メール・日付・時間帯をご入力ください",
+    errorSubmit: "予約を送信できませんでした。後ほど再試行するか、直接ご連絡ください。",
     summaryTitle: "ご予約内容",
     timeHint: "時間はすべて日本時間 (JST) です",
     pickDateFirst: "まず日付を選択してください。曜日に応じて空き枠が表示されます。",
@@ -728,6 +740,8 @@ const ja: Dict = {
 };
 
 const fr: Dict = {
+  siteTitle: "Cours de japonais avec Wendy Sensei",
+  backToTop: "Retour en haut",
   nav: { about: "Le professeur", features: "Méthode", path: "Parcours", contact: "Contact", trial: "Cours d'essai", courses: "Cours" },
   hero: {
     welcome: "ようこそ · BIENVENUE",
@@ -856,6 +870,7 @@ const fr: Dict = {
     submit: "Envoyer la réservation",
     success: "Réservation reçue ! Je confirme rapidement ✿",
     errorRequired: "Veuillez renseigner nom, email, date et créneau",
+    errorSubmit: "La réservation n'a pas pu être envoyée. Réessayez plus tard ou contactez-moi directement.",
     summaryTitle: "Votre réservation",
     timeHint: "Heures données en heure du Japon (JST)",
     pickDateFirst: "Choisissez d'abord une date — les créneaux disponibles s'affichent selon le jour.",
@@ -971,6 +986,11 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
     return detectFromBrowser();
   });
 
+  useEffect(() => {
+    document.documentElement.lang = lang === "zh" ? "zh-TW" : lang;
+    document.title = dictionaries[lang].siteTitle;
+  }, [lang]);
+
   // Refine via IP geolocation on first visit (no saved preference)
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -986,7 +1006,6 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
         const detected = detectFromCountry(country);
         if (detected) {
           setLangState(detected);
-          document.documentElement.lang = detected === "zh" ? "zh-TW" : detected;
         }
       } catch {
         /* network blocked — keep browser-based fallback */
@@ -998,7 +1017,6 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
   const setLang = (l: Lang) => {
     setLangState(l);
     try { localStorage.setItem("lang", l); } catch {}
-    document.documentElement.lang = l === "zh" ? "zh-TW" : l;
   };
 
   return <Ctx.Provider value={{ lang, setLang, t: dictionaries[lang] }}>{children}</Ctx.Provider>;
