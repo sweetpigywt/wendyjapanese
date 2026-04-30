@@ -110,6 +110,7 @@ type Dict = {
     submit: string;
     success: string;
     errorRequired: string;
+    errorSubmit: string;
     summaryTitle: string;
     timeHint: string;
     pickDateFirst: string;
@@ -263,6 +264,7 @@ const zh: Dict = {
     submit: "提交预约",
     success: "预约已提交！老师会尽快与你确认 ✿",
     errorRequired: "请填写姓名、邮箱、日期与时间段",
+    errorSubmit: "预约未发送成功，请稍后再试或直接联系老师。",
     summaryTitle: "你的预约信息",
     timeHint: "时间为日本标准时间 (JST)",
     pickDateFirst: "请先选择日期，可选时间段会根据当天显示。",
