@@ -981,6 +981,11 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
     return detectFromBrowser();
   });
 
+  useEffect(() => {
+    document.documentElement.lang = lang === "zh" ? "zh-TW" : lang;
+    document.title = dictionaries[lang].siteTitle;
+  }, [lang]);
+
   // Refine via IP geolocation on first visit (no saved preference)
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -996,7 +1001,6 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
         const detected = detectFromCountry(country);
         if (detected) {
           setLangState(detected);
-          document.documentElement.lang = detected === "zh" ? "zh-TW" : detected;
         }
       } catch {
         /* network blocked — keep browser-based fallback */
@@ -1008,7 +1012,6 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
   const setLang = (l: Lang) => {
     setLangState(l);
     try { localStorage.setItem("lang", l); } catch {}
-    document.documentElement.lang = l === "zh" ? "zh-TW" : l;
   };
 
   return <Ctx.Provider value={{ lang, setLang, t: dictionaries[lang] }}>{children}</Ctx.Provider>;
