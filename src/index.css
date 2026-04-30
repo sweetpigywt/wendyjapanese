@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -90,13 +90,13 @@
     font-weight: 400;
   }
   h1, h2, h3, h4 {
-    font-family: 'Noto Serif JP', serif;
+    font-family: 'Noto Sans JP', system-ui, sans-serif;
     @apply tracking-tight;
   }
 }
 
 @layer utilities {
-  .font-serif-jp { font-family: 'Noto Serif JP', serif; }
+  .font-serif-jp { font-family: 'Noto Sans JP', system-ui, sans-serif; }
   .font-sans-jp { font-family: 'Noto Sans JP', sans-serif; }
 
   .vertical-jp {
@@ -117,6 +117,6 @@
   .ink-stamp {
     @apply inline-flex items-center justify-center text-primary-foreground;
     background: hsl(var(--sakura));
-    font-family: 'Noto Serif JP', serif;
+    font-family: 'Noto Sans JP', system-ui, sans-serif;
   }
 }
