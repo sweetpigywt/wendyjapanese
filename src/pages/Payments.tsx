@@ -9,21 +9,18 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useI18n } from "@/i18n/i18n";
 import wendyLogo from "@/assets/wendy-logo.png";
 import wechatQr from "@/assets/wechat-qr.jpg";
+import paypalQr from "@/assets/paypal-qr.png";
+import alipayQr from "@/assets/alipay-qr.png";
+import wiseQr from "@/assets/wise-qr.jpg";
 
 // Editable payment account details — update to your real handles.
 const ACCOUNTS = {
-  paypal: "wenty_y@hotmail.com",
   paypayLink: "https://qr.paypay.ne.jp/p2p01_dcjYoYxmsgG8Oc23",
-  alipay: "wenty_y@hotmail.com",
-  wise: "wenty_y@hotmail.com",
 };
 
 // Generate QR via free public API for the PayPay link (no extra deps).
 const paypayQrSrc = `https://api.qrserver.com/v1/create-qr-code/?size=320x320&margin=8&data=${encodeURIComponent(
   ACCOUNTS.paypayLink,
-)}`;
-const alipayQrSrc = `https://api.qrserver.com/v1/create-qr-code/?size=320x320&margin=8&data=${encodeURIComponent(
-  ACCOUNTS.alipay,
 )}`;
 
 const Payments = () => {
@@ -49,11 +46,11 @@ const Payments = () => {
   };
 
   const methods: Method[] = [
-    { key: "paypal", accent: "from-[#003087] to-[#0070ba]", handle: ACCOUNTS.paypal, link: `https://paypal.me/${ACCOUNTS.paypal.split("@")[0]}` },
+    { key: "paypal", accent: "from-[#003087] to-[#0070ba]", qr: paypalQr },
     { key: "paypay", accent: "from-[#ff0033] to-[#ff5577]", qr: paypayQrSrc, link: ACCOUNTS.paypayLink },
     { key: "wechat", accent: "from-[#07c160] to-[#34d27a]", qr: wechatQr },
-    { key: "alipay", accent: "from-[#1677ff] to-[#3ea0ff]", qr: alipayQrSrc, handle: ACCOUNTS.alipay },
-    { key: "wise", accent: "from-[#163300] to-[#9fe870]", handle: ACCOUNTS.wise, link: "https://wise.com" },
+    { key: "alipay", accent: "from-[#1677ff] to-[#3ea0ff]", qr: alipayQr },
+    { key: "wise", accent: "from-[#163300] to-[#9fe870]", qr: wiseQr },
   ];
 
   return (
