@@ -91,6 +91,26 @@ type Dict = {
     methods: { paypal: string; paypay: string; wechat: string; alipay: string; wise: string };
     descriptions: { paypal: string; paypay: string; wechat: string; alipay: string; wise: string };
   };
+  booking: {
+    nav: string;
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    back: string;
+    name: string;
+    email: string;
+    contactLabel: string;
+    contactPh: string;
+    date: string;
+    time: string;
+    notes: string;
+    notesPh: string;
+    submit: string;
+    success: string;
+    errorRequired: string;
+    summaryTitle: string;
+    timeHint: string;
+  };
 };
 
 const zh: Dict = {
