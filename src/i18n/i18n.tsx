@@ -3,6 +3,8 @@ import { createContext, useContext, useState, useEffect, ReactNode } from "react
 export type Lang = "zh" | "en" | "ja" | "fr";
 
 type Dict = {
+  siteTitle: string;
+  backToTop: string;
   nav: { about: string; features: string; path: string; contact: string; trial: string; courses: string };
   hero: {
     welcome: string;
@@ -131,6 +133,8 @@ type Dict = {
 };
 
 const zh: Dict = {
+  siteTitle: "Wendy老师的日语课堂",
+  backToTop: "返回顶部",
   nav: { about: "老师介绍", features: "教学特色", path: "学习路径", contact: "联系方式", trial: "免费试听", courses: "课程介绍" },
   hero: {
     welcome: "ようこそ · 欢迎",
@@ -330,6 +334,8 @@ const zh: Dict = {
 };
 
 const en: Dict = {
+  siteTitle: "Wendy Sensei's Japanese Classroom",
+  backToTop: "Back to top",
   nav: { about: "About", features: "Method", path: "Roadmap", contact: "Contact", trial: "Free Trial", courses: "Courses" },
   hero: {
     welcome: "ようこそ · WELCOME",
@@ -529,6 +535,8 @@ const en: Dict = {
 };
 
 const ja: Dict = {
+  siteTitle: "Wendy先生の日本語教室",
+  backToTop: "トップへ戻る",
   nav: { about: "講師紹介", features: "教え方", path: "学習プラン", contact: "お問い合わせ", trial: "無料体験", courses: "コース紹介" },
   hero: {
     welcome: "ようこそ · WELCOME",
@@ -728,6 +736,8 @@ const ja: Dict = {
 };
 
 const fr: Dict = {
+  siteTitle: "Cours de japonais avec Wendy Sensei",
+  backToTop: "Retour en haut",
   nav: { about: "Le professeur", features: "Méthode", path: "Parcours", contact: "Contact", trial: "Cours d'essai", courses: "Cours" },
   hero: {
     welcome: "ようこそ · BIENVENUE",
