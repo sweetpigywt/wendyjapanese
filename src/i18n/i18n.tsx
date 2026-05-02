@@ -579,10 +579,39 @@ const en: Dict = {
         ],
       },
     ],
+    pricing: {
+      eyebrow: "PRICING · 費用",
+      title: "Wendy Sensei's Pricing Guide",
+      intro: "I offer flexible lesson formats so each student can choose what fits their goals.",
+      currencyNote: "Prices are listed in USD. Local currency display may vary with exchange rates — USD prices are authoritative.",
+      groups: [
+        {
+          heading: "Free Trial",
+          description: "New students can book a 30-minute trial to experience my teaching style.",
+          items: [{ label: "30-minute trial lesson", price: "Free" }],
+        },
+        {
+          heading: "One-on-One Private Lessons",
+          description: "Two-hour lessons include a 10-minute mid-lesson break to keep your mind fresh.",
+          items: [
+            { label: "1-hour single lesson", price: "USD 40" },
+            { label: "2-hour single lesson", price: "USD 70", note: "Includes 10-min break" },
+          ],
+        },
+        {
+          heading: "Beginner Small-Group Class",
+          description: "A small group designed for absolute beginners — minimum 3 students to open the class.",
+          items: [{ label: "2-hour group lesson (3 students)", price: "USD 80", note: "Total price for 3 people" }],
+        },
+        {
+          heading: "Long-Term Package",
+          description: "Best for students planning long-term study — better value than booking single lessons.",
+          items: [{ label: "10-lesson package", price: "USD 750" }],
+        },
+      ],
+    },
   },
 };
-
-const ja: Dict = {
   siteTitle: "Wendy先生の日本語教室",
   backToTop: "トップへ戻る",
   nav: { about: "講師紹介", features: "教え方", path: "学習プラン", contact: "お問い合わせ", trial: "無料体験", courses: "コース紹介" },
