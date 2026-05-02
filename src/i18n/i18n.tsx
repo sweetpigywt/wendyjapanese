@@ -813,10 +813,39 @@ const ja: Dict = {
         ],
       },
     ],
+    pricing: {
+      eyebrow: "料金 · PRICING",
+      title: "Wendy先生のレッスン料金ガイド",
+      intro: "目的に合わせて選べる、複数のレッスンプランをご用意しています。",
+      currencyNote: "表示通貨は言語によって異なる場合があり、為替により変動することがあります。料金は USD を基準とします。",
+      groups: [
+        {
+          heading: "無料体験レッスン",
+          description: "新規の方は 30 分の体験レッスンを 1 回ご予約いただけます。",
+          items: [{ label: "30 分体験レッスン", price: "無料" }],
+        },
+        {
+          heading: "マンツーマン個人レッスン",
+          description: "2 時間レッスンには 10 分の休憩を含み、集中力を保ちます。",
+          items: [
+            { label: "1 時間レッスン", price: "USD 40" },
+            { label: "2 時間レッスン", price: "USD 70", note: "10 分休憩あり" },
+          ],
+        },
+        {
+          heading: "ゼロから始めるグループレッスン",
+          description: "初心者向けの少人数クラス。3 名から開講します。",
+          items: [{ label: "2 時間グループレッスン（3 名）", price: "USD 80", note: "3 名分の合計" }],
+        },
+        {
+          heading: "長期学習パッケージ",
+          description: "長く学びたい方向け。単発購入よりお得です。",
+          items: [{ label: "10 回パッケージ", price: "USD 750" }],
+        },
+      ],
+    },
   },
 };
-
-const fr: Dict = {
   siteTitle: "Cours de japonais avec Wendy Sensei",
   backToTop: "Retour en haut",
   nav: { about: "Le professeur", features: "Méthode", path: "Parcours", contact: "Contact", trial: "Cours d'essai", courses: "Cours" },
