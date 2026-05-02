@@ -34,7 +34,7 @@ const credentialIcons = [Award, GraduationCap, Globe2, Star];
 const featureIcons = [BookOpen, Mic, Sparkles];
 
 const Index = () => {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
   const [submitting, setSubmitting] = useState(false);
