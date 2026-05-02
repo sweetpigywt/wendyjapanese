@@ -612,6 +612,8 @@ const en: Dict = {
     },
   },
 };
+
+const ja: Dict = {
   siteTitle: "Wendy先生の日本語教室",
   backToTop: "トップへ戻る",
   nav: { about: "講師紹介", features: "教え方", path: "学習プラン", contact: "お問い合わせ", trial: "無料体験", courses: "コース紹介" },
