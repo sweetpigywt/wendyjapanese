@@ -1047,6 +1047,37 @@ const fr: Dict = {
         ],
       },
     ],
+    pricing: {
+      eyebrow: "TARIFS · PRICING",
+      title: "Guide des tarifs des cours de Wendy",
+      intro: "Plusieurs formats de cours sont proposés afin que chaque élève trouve la formule adaptée à ses objectifs.",
+      currencyNote: "Les prix peuvent s'afficher dans différentes devises selon la langue et varier selon le taux de change. Les prix de référence sont en USD.",
+      groups: [
+        {
+          heading: "Cours d'essai gratuit",
+          description: "Les nouveaux élèves peuvent réserver un cours d'essai de 30 minutes pour découvrir ma méthode.",
+          items: [{ label: "Cours d'essai de 30 min", price: "Gratuit" }],
+        },
+        {
+          heading: "Cours particuliers individuels",
+          description: "Les cours de 2 h incluent une pause de 10 min pour rester concentré.",
+          items: [
+            { label: "Cours unique de 1 h", price: "USD 40" },
+            { label: "Cours unique de 2 h", price: "USD 70", note: "Pause de 10 min incluse" },
+          ],
+        },
+        {
+          heading: "Petit groupe débutant",
+          description: "Petite classe pensée pour les grands débutants. Ouverture à partir de 3 élèves.",
+          items: [{ label: "Cours en groupe de 2 h (3 élèves)", price: "USD 80", note: "Prix total pour 3 personnes" }],
+        },
+        {
+          heading: "Pack longue durée",
+          description: "Idéal pour un suivi régulier — meilleur rapport qualité-prix qu'à l'unité.",
+          items: [{ label: "Pack de 10 cours", price: "USD 750" }],
+        },
+      ],
+    },
   },
 };
 
