@@ -148,7 +148,7 @@ type Dict = {
 const zh: Dict = {
   siteTitle: "Wendy老师的日语课堂",
   backToTop: "返回顶部",
-  nav: { about: "老师介绍", features: "教学特色", path: "学习路径", contact: "联系方式", trial: "免费试听", courses: "课程介绍" },
+  nav: { about: "老师介绍", features: "教学特色", path: "学习路径", contact: "联系方式", trial: "免费试听", courses: "课程介绍&费用" },
   hero: {
     welcome: "ようこそ · 欢迎",
     title1: "掌握地道日语,",
@@ -360,19 +360,19 @@ const zh: Dict = {
           heading: "一对一个人课程",
           description: "两小时的课程会包含 10 分钟的中间休息，让大脑得到放松。",
           items: [
-            { label: "1 小时单次课", price: "USD 40" },
-            { label: "2 小时单次课", price: "USD 70", note: "含 10 分钟中间休息" },
+            { label: "1 小时单次课", price: "RMB 290" },
+            { label: "2 小时单次课", price: "RMB 500", note: "含 10 分钟中间休息" },
           ],
         },
         {
           heading: "零基础小班团课",
           description: "专为零基础新手准备的小班课，需满 3 人成班，互动氛围更轻松。",
-          items: [{ label: "2 小时团课（3 人）", price: "USD 80", note: "三人总价" }],
+          items: [{ label: "2 小时团课（3 人）", price: "RMB 580", note: "三人总价" }],
         },
         {
           heading: "长期学习套餐",
           description: "适合希望长期跟课的学生，整体价格比单次购买更划算。",
-          items: [{ label: "10 次课套餐", price: "USD 750" }],
+          items: [{ label: "10 次课套餐", price: "RMB 5,400" }],
         },
       ],
     },
@@ -382,7 +382,7 @@ const zh: Dict = {
 const en: Dict = {
   siteTitle: "Wendy Sensei's Japanese Classroom",
   backToTop: "Back to top",
-  nav: { about: "About", features: "Method", path: "Roadmap", contact: "Contact", trial: "Free Trial", courses: "Courses" },
+  nav: { about: "About", features: "Method", path: "Roadmap", contact: "Contact", trial: "Free Trial", courses: "Courses & Pricing" },
   hero: {
     welcome: "ようこそ · WELCOME",
     title1: "Master authentic Japanese,",
@@ -616,7 +616,7 @@ const en: Dict = {
 const ja: Dict = {
   siteTitle: "Wendy先生の日本語教室",
   backToTop: "トップへ戻る",
-  nav: { about: "講師紹介", features: "教え方", path: "学習プラン", contact: "お問い合わせ", trial: "無料体験", courses: "コース紹介" },
+  nav: { about: "講師紹介", features: "教え方", path: "学習プラン", contact: "お問い合わせ", trial: "無料体験", courses: "コース紹介＆料金" },
   hero: {
     welcome: "ようこそ · WELCOME",
     title1: "本物の日本語を身につけ,",
@@ -828,19 +828,19 @@ const ja: Dict = {
           heading: "マンツーマン個人レッスン",
           description: "2 時間レッスンには 10 分の休憩を含み、集中力を保ちます。",
           items: [
-            { label: "1 時間レッスン", price: "USD 40" },
-            { label: "2 時間レッスン", price: "USD 70", note: "10 分休憩あり" },
+            { label: "1 時間レッスン", price: "JPY 6,000" },
+            { label: "2 時間レッスン", price: "JPY 10,500", note: "10 分休憩あり" },
           ],
         },
         {
-          heading: "ゼロから始めるグループレッスン",
-          description: "初心者向けの少人数クラス。3 名から開講します。",
-          items: [{ label: "2 時間グループレッスン（3 名）", price: "USD 80", note: "3 名分の合計" }],
+          heading: "初心者向け少人数グループレッスン",
+          description: "完全初心者の方を対象とした少人数クラス。3 名集まると開講でき、和やかな雰囲気で学べます。",
+          items: [{ label: "2 時間グループレッスン（3 名）", price: "JPY 12,000", note: "3 名分の合計" }],
         },
         {
           heading: "長期学習パッケージ",
-          description: "長く学びたい方向け。単発購入よりお得です。",
-          items: [{ label: "10 回パッケージ", price: "USD 750" }],
+          description: "継続して学びたい方におすすめ。単発で受講するより総合的にお得です。",
+          items: [{ label: "10 回パッケージ", price: "JPY 112,500" }],
         },
       ],
     },
@@ -850,7 +850,7 @@ const ja: Dict = {
 const fr: Dict = {
   siteTitle: "Cours de japonais avec Wendy Sensei",
   backToTop: "Retour en haut",
-  nav: { about: "Le professeur", features: "Méthode", path: "Parcours", contact: "Contact", trial: "Cours d'essai", courses: "Cours" },
+  nav: { about: "Le professeur", features: "Méthode", path: "Parcours", contact: "Contact", trial: "Cours d'essai", courses: "Cours & Tarifs" },
   hero: {
     welcome: "ようこそ · BIENVENUE",
     title1: "Maîtrisez un japonais authentique,",
@@ -1062,19 +1062,19 @@ const fr: Dict = {
           heading: "Cours particuliers individuels",
           description: "Les cours de 2 h incluent une pause de 10 min pour rester concentré.",
           items: [
-            { label: "Cours unique de 1 h", price: "USD 40" },
-            { label: "Cours unique de 2 h", price: "USD 70", note: "Pause de 10 min incluse" },
+            { label: "Cours unique de 1 h", price: "EUR 37" },
+            { label: "Cours unique de 2 h", price: "EUR 64", note: "Pause de 10 min incluse" },
           ],
         },
         {
-          heading: "Petit groupe débutant",
-          description: "Petite classe pensée pour les grands débutants. Ouverture à partir de 3 élèves.",
-          items: [{ label: "Cours en groupe de 2 h (3 élèves)", price: "USD 80", note: "Prix total pour 3 personnes" }],
+          heading: "Cours en petit groupe pour débutants",
+          description: "Cours conçu pour les vrais débutants — minimum 3 élèves pour ouvrir la classe, ambiance conviviale.",
+          items: [{ label: "Cours en groupe de 2 h (3 élèves)", price: "EUR 74", note: "Prix total pour 3 personnes" }],
         },
         {
           heading: "Pack longue durée",
-          description: "Idéal pour un suivi régulier — meilleur rapport qualité-prix qu'à l'unité.",
-          items: [{ label: "Pack de 10 cours", price: "USD 750" }],
+          description: "Idéal pour un suivi régulier — plus avantageux qu'à la séance.",
+          items: [{ label: "Pack de 10 cours", price: "EUR 690" }],
         },
       ],
     },
