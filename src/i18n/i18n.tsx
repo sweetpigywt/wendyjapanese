@@ -989,8 +989,8 @@ const fr: Dict = {
   courses: {
     nav: "Cours",
     eyebrow: "COURS · COURSES",
-    title: "Mes cinq cours principaux",
-    subtitle: "Des kana à la préparation au JLPT, du keigo au japonais des affaires — chaque cours répond à un vrai objectif.",
+    title: "Cours et tarifs",
+    subtitle: "Des kana à la préparation au JLPT, du keigo au japonais des affaires — chaque cours répond à un vrai objectif. Les tarifs détaillés figurent ci-dessous.",
     back: "← Retour à l'accueil",
     sessionsLabel: "Programme du cours",
     items: [
