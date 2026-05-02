@@ -345,6 +345,37 @@ const zh: Dict = {
         ],
       },
     ],
+    pricing: {
+      eyebrow: "費用 · PRICING",
+      title: "Wendy 老师课程费用指南",
+      intro: "Wendy 老师准备了多样的上课方案，学生可以根据自己的学习目标挑选合适的安排。",
+      currencyNote: "不同语言显示不同的货币，标注价格可能随汇率而变化，以美元为准。",
+      groups: [
+        {
+          heading: "免费试听体验",
+          description: "新学生可以预约一次半小时的试听课，感受老师的上课风格。",
+          items: [{ label: "30 分钟试听课", price: "免费" }],
+        },
+        {
+          heading: "一对一个人课程",
+          description: "两小时的课程会包含 10 分钟的中间休息，让大脑得到放松。",
+          items: [
+            { label: "1 小时单次课", price: "USD 40" },
+            { label: "2 小时单次课", price: "USD 70", note: "含 10 分钟中间休息" },
+          ],
+        },
+        {
+          heading: "零基础小班团课",
+          description: "专为零基础新手准备的小班课，需满 3 人成班，互动氛围更轻松。",
+          items: [{ label: "2 小时团课（3 人）", price: "USD 80", note: "三人总价" }],
+        },
+        {
+          heading: "长期学习套餐",
+          description: "适合希望长期跟课的学生，整体价格比单次购买更划算。",
+          items: [{ label: "10 次课套餐", price: "USD 750" }],
+        },
+      ],
+    },
   },
 };
 
