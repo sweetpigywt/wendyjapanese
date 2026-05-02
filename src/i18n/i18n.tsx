@@ -521,8 +521,8 @@ const en: Dict = {
   courses: {
     nav: "Courses",
     eyebrow: "COURSES · 課程",
-    title: "My five core courses",
-    subtitle: "From the very first kana to JLPT prep, business Japanese and keigo for the workplace — each course is built around a real goal.",
+    title: "Courses & Pricing",
+    subtitle: "From the very first kana to JLPT prep, business Japanese and keigo for the workplace — each course is built around a real goal. Detailed pricing is shown below.",
     back: "← Back to home",
     sessionsLabel: "Course outline",
     items: [
