@@ -131,6 +131,17 @@ type Dict = {
       summary?: string;
       sections: { heading: string; bullets: string[] }[];
     }[];
+    pricing: {
+      eyebrow: string;
+      title: string;
+      intro: string;
+      currencyNote: string;
+      groups: {
+        heading: string;
+        description?: string;
+        items: { label: string; price: string; note?: string }[];
+      }[];
+    };
   };
 };
 
@@ -276,8 +287,8 @@ const zh: Dict = {
   courses: {
     nav: "课程介绍",
     eyebrow: "課程 · COURSES",
-    title: "我的五大课程体系",
-    subtitle: "从零基础发音到 JLPT 冲刺、再到职场敬语与商务实战，每一门课都为你量身设计。",
+    title: "课程说明及费用",
+    subtitle: "从零基础发音到 JLPT 冲刺、再到职场敬语与商务实战，每一门课都为你量身设计。下方附上详细的费用说明。",
     back: "← 返回首页",
     sessionsLabel: "课程明细",
     items: [
@@ -334,6 +345,37 @@ const zh: Dict = {
         ],
       },
     ],
+    pricing: {
+      eyebrow: "費用 · PRICING",
+      title: "Wendy 老师课程费用指南",
+      intro: "Wendy 老师准备了多样的上课方案，学生可以根据自己的学习目标挑选合适的安排。",
+      currencyNote: "不同语言显示不同的货币，标注价格可能随汇率而变化，以美元为准。",
+      groups: [
+        {
+          heading: "免费试听体验",
+          description: "新学生可以预约一次半小时的试听课，感受老师的上课风格。",
+          items: [{ label: "30 分钟试听课", price: "免费" }],
+        },
+        {
+          heading: "一对一个人课程",
+          description: "两小时的课程会包含 10 分钟的中间休息，让大脑得到放松。",
+          items: [
+            { label: "1 小时单次课", price: "USD 40" },
+            { label: "2 小时单次课", price: "USD 70", note: "含 10 分钟中间休息" },
+          ],
+        },
+        {
+          heading: "零基础小班团课",
+          description: "专为零基础新手准备的小班课，需满 3 人成班，互动氛围更轻松。",
+          items: [{ label: "2 小时团课（3 人）", price: "USD 80", note: "三人总价" }],
+        },
+        {
+          heading: "长期学习套餐",
+          description: "适合希望长期跟课的学生，整体价格比单次购买更划算。",
+          items: [{ label: "10 次课套餐", price: "USD 750" }],
+        },
+      ],
+    },
   },
 };
 
@@ -479,8 +521,8 @@ const en: Dict = {
   courses: {
     nav: "Courses",
     eyebrow: "COURSES · 課程",
-    title: "My five core courses",
-    subtitle: "From the very first kana to JLPT prep, business Japanese and keigo for the workplace — each course is built around a real goal.",
+    title: "Courses & Pricing",
+    subtitle: "From the very first kana to JLPT prep, business Japanese and keigo for the workplace — each course is built around a real goal. Detailed pricing is shown below.",
     back: "← Back to home",
     sessionsLabel: "Course outline",
     items: [
@@ -537,6 +579,37 @@ const en: Dict = {
         ],
       },
     ],
+    pricing: {
+      eyebrow: "PRICING · 費用",
+      title: "Wendy Sensei's Pricing Guide",
+      intro: "I offer flexible lesson formats so each student can choose what fits their goals.",
+      currencyNote: "Prices are listed in USD. Local currency display may vary with exchange rates — USD prices are authoritative.",
+      groups: [
+        {
+          heading: "Free Trial",
+          description: "New students can book a 30-minute trial to experience my teaching style.",
+          items: [{ label: "30-minute trial lesson", price: "Free" }],
+        },
+        {
+          heading: "One-on-One Private Lessons",
+          description: "Two-hour lessons include a 10-minute mid-lesson break to keep your mind fresh.",
+          items: [
+            { label: "1-hour single lesson", price: "USD 40" },
+            { label: "2-hour single lesson", price: "USD 70", note: "Includes 10-min break" },
+          ],
+        },
+        {
+          heading: "Beginner Small-Group Class",
+          description: "A small group designed for absolute beginners — minimum 3 students to open the class.",
+          items: [{ label: "2-hour group lesson (3 students)", price: "USD 80", note: "Total price for 3 people" }],
+        },
+        {
+          heading: "Long-Term Package",
+          description: "Best for students planning long-term study — better value than booking single lessons.",
+          items: [{ label: "10-lesson package", price: "USD 750" }],
+        },
+      ],
+    },
   },
 };
 
@@ -682,8 +755,8 @@ const ja: Dict = {
   courses: {
     nav: "コース紹介",
     eyebrow: "コース · COURSES",
-    title: "5つのメインコース",
-    subtitle: "ゼロからの発音特訓、JLPT対策、敬語、ビジネス日本語まで、目的別に設計しています。",
+    title: "コース紹介と料金",
+    subtitle: "ゼロからの発音特訓、JLPT対策、敬語、ビジネス日本語まで、目的別に設計しています。下記に料金もまとめています。",
     back: "← トップへ戻る",
     sessionsLabel: "コース内容",
     items: [
@@ -740,6 +813,37 @@ const ja: Dict = {
         ],
       },
     ],
+    pricing: {
+      eyebrow: "料金 · PRICING",
+      title: "Wendy先生のレッスン料金ガイド",
+      intro: "目的に合わせて選べる、複数のレッスンプランをご用意しています。",
+      currencyNote: "表示通貨は言語によって異なる場合があり、為替により変動することがあります。料金は USD を基準とします。",
+      groups: [
+        {
+          heading: "無料体験レッスン",
+          description: "新規の方は 30 分の体験レッスンを 1 回ご予約いただけます。",
+          items: [{ label: "30 分体験レッスン", price: "無料" }],
+        },
+        {
+          heading: "マンツーマン個人レッスン",
+          description: "2 時間レッスンには 10 分の休憩を含み、集中力を保ちます。",
+          items: [
+            { label: "1 時間レッスン", price: "USD 40" },
+            { label: "2 時間レッスン", price: "USD 70", note: "10 分休憩あり" },
+          ],
+        },
+        {
+          heading: "ゼロから始めるグループレッスン",
+          description: "初心者向けの少人数クラス。3 名から開講します。",
+          items: [{ label: "2 時間グループレッスン（3 名）", price: "USD 80", note: "3 名分の合計" }],
+        },
+        {
+          heading: "長期学習パッケージ",
+          description: "長く学びたい方向け。単発購入よりお得です。",
+          items: [{ label: "10 回パッケージ", price: "USD 750" }],
+        },
+      ],
+    },
   },
 };
 
@@ -885,8 +989,8 @@ const fr: Dict = {
   courses: {
     nav: "Cours",
     eyebrow: "COURS · COURSES",
-    title: "Mes cinq cours principaux",
-    subtitle: "Des kana à la préparation au JLPT, du keigo au japonais des affaires — chaque cours répond à un vrai objectif.",
+    title: "Cours et tarifs",
+    subtitle: "Des kana à la préparation au JLPT, du keigo au japonais des affaires — chaque cours répond à un vrai objectif. Les tarifs détaillés figurent ci-dessous.",
     back: "← Retour à l'accueil",
     sessionsLabel: "Programme du cours",
     items: [
@@ -943,6 +1047,37 @@ const fr: Dict = {
         ],
       },
     ],
+    pricing: {
+      eyebrow: "TARIFS · PRICING",
+      title: "Guide des tarifs des cours de Wendy",
+      intro: "Plusieurs formats de cours sont proposés afin que chaque élève trouve la formule adaptée à ses objectifs.",
+      currencyNote: "Les prix peuvent s'afficher dans différentes devises selon la langue et varier selon le taux de change. Les prix de référence sont en USD.",
+      groups: [
+        {
+          heading: "Cours d'essai gratuit",
+          description: "Les nouveaux élèves peuvent réserver un cours d'essai de 30 minutes pour découvrir ma méthode.",
+          items: [{ label: "Cours d'essai de 30 min", price: "Gratuit" }],
+        },
+        {
+          heading: "Cours particuliers individuels",
+          description: "Les cours de 2 h incluent une pause de 10 min pour rester concentré.",
+          items: [
+            { label: "Cours unique de 1 h", price: "USD 40" },
+            { label: "Cours unique de 2 h", price: "USD 70", note: "Pause de 10 min incluse" },
+          ],
+        },
+        {
+          heading: "Petit groupe débutant",
+          description: "Petite classe pensée pour les grands débutants. Ouverture à partir de 3 élèves.",
+          items: [{ label: "Cours en groupe de 2 h (3 élèves)", price: "USD 80", note: "Prix total pour 3 personnes" }],
+        },
+        {
+          heading: "Pack longue durée",
+          description: "Idéal pour un suivi régulier — meilleur rapport qualité-prix qu'à l'unité.",
+          items: [{ label: "Pack de 10 cours", price: "USD 750" }],
+        },
+      ],
+    },
   },
 };
 

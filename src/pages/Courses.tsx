@@ -89,6 +89,46 @@ const Courses = () => {
         </div>
 
         <Reveal>
+          <div className="mt-20">
+            <div className="mb-10 text-center">
+              <p className="mb-3 text-xs tracking-[0.3em] text-sakura">{t.courses.pricing.eyebrow}</p>
+              <h2 className="font-serif text-3xl font-black text-sumi md:text-4xl">{t.courses.pricing.title}</h2>
+              <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">{t.courses.pricing.intro}</p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2">
+              {t.courses.pricing.groups.map((group) => (
+                <Card key={group.heading} className="border-border bg-card p-6 shadow-card md:p-8">
+                  <h3 className="font-serif text-lg font-bold text-sumi md:text-xl">{group.heading}</h3>
+                  {group.description && (
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{group.description}</p>
+                  )}
+                  <div className="mt-4 h-px w-10 bg-sakura" />
+                  <ul className="mt-4 space-y-3">
+                    {group.items.map((it) => (
+                      <li
+                        key={it.label}
+                        className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-border/60 pb-3 last:border-b-0 last:pb-0"
+                      >
+                        <div className="flex-1">
+                          <div className="text-sm font-medium text-sumi">{it.label}</div>
+                          {it.note && (
+                            <div className="mt-0.5 text-xs text-muted-foreground">{it.note}</div>
+                          )}
+                        </div>
+                        <div className="font-serif text-base font-bold text-sakura">{it.price}</div>
+                      </li>
+                    ))}
+                  </ul>
+                </Card>
+              ))}
+            </div>
+
+            <p className="mt-6 text-center text-xs text-muted-foreground">{t.courses.pricing.currencyNote}</p>
+          </div>
+        </Reveal>
+
+        <Reveal>
           <div className="mt-12 flex justify-center">
             <Button asChild size="lg" className="bg-sakura text-primary-foreground hover:bg-sakura/90">
               <Link to="/booking">{t.nav.trial} →</Link>
