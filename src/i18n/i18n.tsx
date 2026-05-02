@@ -131,6 +131,17 @@ type Dict = {
       summary?: string;
       sections: { heading: string; bullets: string[] }[];
     }[];
+    pricing: {
+      eyebrow: string;
+      title: string;
+      intro: string;
+      currencyNote: string;
+      groups: {
+        heading: string;
+        description?: string;
+        items: { label: string; price: string; note?: string }[];
+      }[];
+    };
   };
 };
 
