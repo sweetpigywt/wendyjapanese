@@ -148,7 +148,7 @@ type Dict = {
 const zh: Dict = {
   siteTitle: "Wendy老师的日语课堂",
   backToTop: "返回顶部",
-  nav: { about: "老师介绍", features: "教学特色", path: "学习路径", contact: "联系方式", trial: "免费试听", courses: "课程介绍" },
+  nav: { about: "老师介绍", features: "教学特色", path: "学习路径", contact: "联系方式", trial: "免费试听", courses: "课程介绍&费用" },
   hero: {
     welcome: "ようこそ · 欢迎",
     title1: "掌握地道日语,",
