@@ -755,8 +755,8 @@ const ja: Dict = {
   courses: {
     nav: "コース紹介",
     eyebrow: "コース · COURSES",
-    title: "5つのメインコース",
-    subtitle: "ゼロからの発音特訓、JLPT対策、敬語、ビジネス日本語まで、目的別に設計しています。",
+    title: "コース紹介と料金",
+    subtitle: "ゼロからの発音特訓、JLPT対策、敬語、ビジネス日本語まで、目的別に設計しています。下記に料金もまとめています。",
     back: "← トップへ戻る",
     sessionsLabel: "コース内容",
     items: [
