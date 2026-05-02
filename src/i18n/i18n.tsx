@@ -382,7 +382,7 @@ const zh: Dict = {
 const en: Dict = {
   siteTitle: "Wendy Sensei's Japanese Classroom",
   backToTop: "Back to top",
-  nav: { about: "About", features: "Method", path: "Roadmap", contact: "Contact", trial: "Free Trial", courses: "Courses" },
+  nav: { about: "About", features: "Method", path: "Roadmap", contact: "Contact", trial: "Free Trial", courses: "Courses & Pricing" },
   hero: {
     welcome: "ようこそ · WELCOME",
     title1: "Master authentic Japanese,",
