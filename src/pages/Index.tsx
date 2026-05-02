@@ -377,15 +377,7 @@ const Index = () => {
                 <div className="flex items-center justify-between gap-3 border-b border-border/60 bg-card px-5 py-3">
                   <span className="text-xs tracking-wider text-muted-foreground">Google Form</span>
                   <a
-                    href={(() => {
-                      const m: Record<string, string> = {
-                        zh: "https://docs.google.com/forms/d/e/1FAIpQLSd0uJdU_g1v2CnGKpSnMlw93skiiaj5c3YPaNu1zEBKH00tgw/viewform",
-                        ja: "https://docs.google.com/forms/d/e/1FAIpQLSc5IujUCfQIRw0PMdu7811-0KzBaEj-9jLWgjbAXCP92Sj8Kg/viewform",
-                        en: "https://docs.google.com/forms/d/e/1FAIpQLSdZqi3_xe5k0X6OSDg3KUjWXt80sGzrZUJucsyxoabDpdqkXA/viewform",
-                        fr: "https://docs.google.com/forms/d/e/1FAIpQLSdc3McGUV-bGqxsyOiRTZeR8cAnSwXt35yUXIJ0STafe8wCwQ/viewform",
-                      };
-                      return m[lang] ?? m.en;
-                    })()}
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSe1cm3rOjVylzgVE2fqLwqRonOZRWFD3TlebnnXSM9hGL_H3w/viewform"
                     target="_blank"
                     rel="noreferrer"
                     className="text-xs font-medium text-sakura hover:underline"
@@ -394,16 +386,7 @@ const Index = () => {
                   </a>
                 </div>
                 <iframe
-                  key={lang}
-                  src={(() => {
-                    const m: Record<string, string> = {
-                      zh: "https://docs.google.com/forms/d/e/1FAIpQLSd0uJdU_g1v2CnGKpSnMlw93skiiaj5c3YPaNu1zEBKH00tgw/viewform?embedded=true",
-                      ja: "https://docs.google.com/forms/d/e/1FAIpQLSc5IujUCfQIRw0PMdu7811-0KzBaEj-9jLWgjbAXCP92Sj8Kg/viewform?embedded=true",
-                      en: "https://docs.google.com/forms/d/e/1FAIpQLSdZqi3_xe5k0X6OSDg3KUjWXt80sGzrZUJucsyxoabDpdqkXA/viewform?embedded=true",
-                      fr: "https://docs.google.com/forms/d/e/1FAIpQLSdc3McGUV-bGqxsyOiRTZeR8cAnSwXt35yUXIJ0STafe8wCwQ/viewform?embedded=true",
-                    };
-                    return m[lang] ?? m.en;
-                  })()}
+                  src="https://docs.google.com/forms/d/e/1FAIpQLSe1cm3rOjVylzgVE2fqLwqRonOZRWFD3TlebnnXSM9hGL_H3w/viewform?embedded=true"
                   title="Contact form"
                   className="w-full"
                   style={{ height: "1200px", border: 0 }}
