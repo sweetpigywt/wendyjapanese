@@ -850,7 +850,7 @@ const ja: Dict = {
 const fr: Dict = {
   siteTitle: "Cours de japonais avec Wendy Sensei",
   backToTop: "Retour en haut",
-  nav: { about: "Le professeur", features: "Méthode", path: "Parcours", contact: "Contact", trial: "Cours d'essai", courses: "Cours" },
+  nav: { about: "Le professeur", features: "Méthode", path: "Parcours", contact: "Contact", trial: "Cours d'essai", courses: "Cours & Tarifs" },
   hero: {
     welcome: "ようこそ · BIENVENUE",
     title1: "Maîtrisez un japonais authentique,",
