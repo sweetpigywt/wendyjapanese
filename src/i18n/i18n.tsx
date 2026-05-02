@@ -287,8 +287,8 @@ const zh: Dict = {
   courses: {
     nav: "课程介绍",
     eyebrow: "課程 · COURSES",
-    title: "我的五大课程体系",
-    subtitle: "从零基础发音到 JLPT 冲刺、再到职场敬语与商务实战，每一门课都为你量身设计。",
+    title: "课程说明及费用",
+    subtitle: "从零基础发音到 JLPT 冲刺、再到职场敬语与商务实战，每一门课都为你量身设计。下方附上详细的费用说明。",
     back: "← 返回首页",
     sessionsLabel: "课程明细",
     items: [
