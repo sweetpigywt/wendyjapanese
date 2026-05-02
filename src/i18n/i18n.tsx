@@ -116,6 +116,7 @@ type Dict = {
     pickDateFirst: string;
     dayUnavailable: string;
     availability: string;
+    openForm: string;
   };
   courses: {
     nav: string;
@@ -270,6 +271,7 @@ const zh: Dict = {
     pickDateFirst: "请先选择日期，可选时间段会根据当天显示。",
     dayUnavailable: "当天暂无可预约时段。可选：周二 / 周三 / 周五 17:30–23:00，周六 15:00–23:00，周日 08:00–23:00。",
     availability: "可预约时间：周二 / 三 / 五 17:30–23:00 · 周六 15:00–23:00 · 周日 08:00–23:00 (JST)",
+    openForm: "在新窗口打开表单",
   },
   courses: {
     nav: "课程介绍",
@@ -472,6 +474,7 @@ const en: Dict = {
     pickDateFirst: "Please pick a date first — available time slots appear based on the day.",
     dayUnavailable: "No available slots on this day. Available: Tue / Wed / Fri 17:30–23:00, Sat 15:00–23:00, Sun 08:00–23:00 (JST).",
     availability: "Availability: Tue / Wed / Fri 17:30–23:00 · Sat 15:00–23:00 · Sun 08:00–23:00 (JST)",
+    openForm: "Open form in a new tab",
   },
   courses: {
     nav: "Courses",
@@ -674,6 +677,7 @@ const ja: Dict = {
     pickDateFirst: "まず日付を選択してください。曜日に応じて空き枠が表示されます。",
     dayUnavailable: "この日は予約可能な時間帯がありません。対応曜日：火・水・金 17:30–23:00 / 土 15:00–23:00 / 日 08:00–23:00 (JST)。",
     availability: "ご予約可能：火・水・金 17:30–23:00 · 土 15:00–23:00 · 日 08:00–23:00 (JST)",
+    openForm: "新しいタブでフォームを開く",
   },
   courses: {
     nav: "コース紹介",
@@ -876,6 +880,7 @@ const fr: Dict = {
     pickDateFirst: "Choisissez d'abord une date — les créneaux disponibles s'affichent selon le jour.",
     dayUnavailable: "Aucun créneau disponible ce jour-là. Disponibilités : mar / mer / ven 17h30–23h, sam 15h–23h, dim 8h–23h (JST).",
     availability: "Disponibilités : mar / mer / ven 17h30–23h · sam 15h–23h · dim 8h–23h (JST)",
+    openForm: "Ouvrir le formulaire dans un nouvel onglet",
   },
   courses: {
     nav: "Cours",

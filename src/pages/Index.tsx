@@ -34,7 +34,7 @@ const credentialIcons = [Award, GraduationCap, Globe2, Star];
 const featureIcons = [BookOpen, Mic, Sparkles];
 
 const Index = () => {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
   const [submitting, setSubmitting] = useState(false);
@@ -373,41 +373,44 @@ const Index = () => {
 
           <div className="grid gap-8 md:grid-cols-[1.2fr_1fr]">
             <Reveal>
-              <Card className="border-border bg-card p-8 shadow-card">
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div>
-                    <label className="mb-2 block text-xs tracking-wider text-muted-foreground">{t.contact.name}</label>
-                    <Input
-                      value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      placeholder={t.contact.namePh}
-                      className="border-border bg-background"
-                    />
-                  </div>
-                  <div>
-                    <label className="mb-2 block text-xs tracking-wider text-muted-foreground">{t.contact.email}</label>
-                    <Input
-                      type="email"
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      placeholder="you@example.com"
-                      className="border-border bg-background"
-                    />
-                  </div>
-                  <div>
-                    <label className="mb-2 block text-xs tracking-wider text-muted-foreground">{t.contact.message}</label>
-                    <Textarea
-                      value={form.message}
-                      onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      placeholder={t.contact.messagePh}
-                      rows={4}
-                      className="border-border bg-background"
-                    />
-                  </div>
-                  <Button type="submit" disabled={submitting} className="w-full bg-sakura text-primary-foreground hover:bg-sakura/90">
-                    <Send className="mr-2 h-4 w-4" /> {t.contact.send}
-                  </Button>
-                </form>
+              <Card className="overflow-hidden border-border bg-card p-0 shadow-card">
+                <div className="flex items-center justify-between gap-3 border-b border-border/60 bg-card px-5 py-3">
+                  <span className="text-xs tracking-wider text-muted-foreground">Google Form</span>
+                  <a
+                    href={(() => {
+                      const m: Record<string, string> = {
+                        zh: "https://docs.google.com/forms/d/e/1FAIpQLSd0uJdU_g1v2CnGKpSnMlw93skiiaj5c3YPaNu1zEBKH00tgw/viewform",
+                        ja: "https://docs.google.com/forms/d/e/1FAIpQLSc5IujUCfQIRw0PMdu7811-0KzBaEj-9jLWgjbAXCP92Sj8Kg/viewform",
+                        en: "https://docs.google.com/forms/d/e/1FAIpQLSdZqi3_xe5k0X6OSDg3KUjWXt80sGzrZUJucsyxoabDpdqkXA/viewform",
+                        fr: "https://docs.google.com/forms/d/e/1FAIpQLSdc3McGUV-bGqxsyOiRTZeR8cAnSwXt35yUXIJ0STafe8wCwQ/viewform",
+                      };
+                      return m[lang] ?? m.en;
+                    })()}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-xs font-medium text-sakura hover:underline"
+                  >
+                    {t.booking.openForm}
+                  </a>
+                </div>
+                <iframe
+                  key={lang}
+                  src={(() => {
+                    const m: Record<string, string> = {
+                      zh: "https://docs.google.com/forms/d/e/1FAIpQLSd0uJdU_g1v2CnGKpSnMlw93skiiaj5c3YPaNu1zEBKH00tgw/viewform?embedded=true",
+                      ja: "https://docs.google.com/forms/d/e/1FAIpQLSc5IujUCfQIRw0PMdu7811-0KzBaEj-9jLWgjbAXCP92Sj8Kg/viewform?embedded=true",
+                      en: "https://docs.google.com/forms/d/e/1FAIpQLSdZqi3_xe5k0X6OSDg3KUjWXt80sGzrZUJucsyxoabDpdqkXA/viewform?embedded=true",
+                      fr: "https://docs.google.com/forms/d/e/1FAIpQLSdc3McGUV-bGqxsyOiRTZeR8cAnSwXt35yUXIJ0STafe8wCwQ/viewform?embedded=true",
+                    };
+                    return m[lang] ?? m.en;
+                  })()}
+                  title="Contact form"
+                  className="w-full"
+                  style={{ height: "1200px", border: 0 }}
+                  loading="lazy"
+                >
+                  Loading…
+                </iframe>
               </Card>
             </Reveal>
 
