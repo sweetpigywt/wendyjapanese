@@ -360,19 +360,19 @@ const zh: Dict = {
           heading: "一对一个人课程",
           description: "两小时的课程会包含 10 分钟的中间休息，让大脑得到放松。",
           items: [
-            { label: "1 小时单次课", price: "USD 40" },
-            { label: "2 小时单次课", price: "USD 70", note: "含 10 分钟中间休息" },
+            { label: "1 小时单次课", price: "RMB 290" },
+            { label: "2 小时单次课", price: "RMB 500", note: "含 10 分钟中间休息" },
           ],
         },
         {
           heading: "零基础小班团课",
           description: "专为零基础新手准备的小班课，需满 3 人成班，互动氛围更轻松。",
-          items: [{ label: "2 小时团课（3 人）", price: "USD 80", note: "三人总价" }],
+          items: [{ label: "2 小时团课（3 人）", price: "RMB 580", note: "三人总价" }],
         },
         {
           heading: "长期学习套餐",
           description: "适合希望长期跟课的学生，整体价格比单次购买更划算。",
-          items: [{ label: "10 次课套餐", price: "USD 750" }],
+          items: [{ label: "10 次课套餐", price: "RMB 5,400" }],
         },
       ],
     },
