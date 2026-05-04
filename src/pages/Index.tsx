@@ -34,6 +34,7 @@ import wendyLogo from "@/assets/wendy-logo.png";
 
 const credentialIcons = [Award, GraduationCap, Globe2, Star];
 const featureIcons = [BookOpen, Mic, Sparkles];
+const appPath = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
 
 const Index = () => {
   const { t, lang } = useI18n();
@@ -87,15 +88,15 @@ const Index = () => {
           <a href="#about" className="transition-colors hover:text-sakura">{t.nav.about}</a>
           <a href="#features" className="transition-colors hover:text-sakura">{t.nav.features}</a>
           <a href="#path" className="transition-colors hover:text-sakura">{t.nav.path}</a>
-          <a href="/courses" className="transition-colors hover:text-sakura">{t.nav.courses}</a>
+          <a href={appPath("/courses")} className="transition-colors hover:text-sakura">{t.nav.courses}</a>
           <a href="#contact" className="transition-colors hover:text-sakura">{t.nav.contact}</a>
-          <a href="/booking" className="transition-colors hover:text-sakura">{t.booking.nav}</a>
-          <a href="/payments" className="transition-colors hover:text-sakura">{t.payments.nav}</a>
+          <a href={appPath("/booking")} className="transition-colors hover:text-sakura">{t.booking.nav}</a>
+          <a href={appPath("/payments")} className="transition-colors hover:text-sakura">{t.payments.nav}</a>
         </nav>
         <div className="flex items-center gap-3">
           <LanguageSwitcher variant="header" />
           <Button asChild className="hidden bg-sakura text-primary-foreground hover:bg-sakura/90 md:inline-flex">
-            <a href="/booking">{t.nav.trial} <ArrowRight className="ml-1 h-4 w-4" /></a>
+            <a href={appPath("/booking")}>{t.nav.trial} <ArrowRight className="ml-1 h-4 w-4" /></a>
           </Button>
           <Sheet>
             <SheetTrigger asChild>
@@ -108,12 +109,12 @@ const Index = () => {
                 <a href="#about" className="transition-colors hover:text-sakura">{t.nav.about}</a>
                 <a href="#features" className="transition-colors hover:text-sakura">{t.nav.features}</a>
                 <a href="#path" className="transition-colors hover:text-sakura">{t.nav.path}</a>
-                <a href="/courses" className="transition-colors hover:text-sakura">{t.nav.courses}</a>
+                <a href={appPath("/courses")} className="transition-colors hover:text-sakura">{t.nav.courses}</a>
                 <a href="#contact" className="transition-colors hover:text-sakura">{t.nav.contact}</a>
-                <a href="/booking" className="transition-colors hover:text-sakura">{t.booking.nav}</a>
-                <a href="/payments" className="transition-colors hover:text-sakura">{t.payments.nav}</a>
+                <a href={appPath("/booking")} className="transition-colors hover:text-sakura">{t.booking.nav}</a>
+                <a href={appPath("/payments")} className="transition-colors hover:text-sakura">{t.payments.nav}</a>
                 <Button asChild className="mt-4 bg-sakura text-primary-foreground hover:bg-sakura/90">
-                  <a href="/booking">{t.nav.trial} <ArrowRight className="ml-1 h-4 w-4" /></a>
+                  <a href={appPath("/booking")}>{t.nav.trial} <ArrowRight className="ml-1 h-4 w-4" /></a>
                 </Button>
               </nav>
             </SheetContent>
@@ -138,7 +139,7 @@ const Index = () => {
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button size="lg" className="bg-sakura text-primary-foreground shadow-soft hover:bg-sakura/90" asChild>
-                <a href="/booking">{t.hero.ctaPrimary}</a>
+                <a href={appPath("/booking")}>{t.hero.ctaPrimary}</a>
               </Button>
               <Button size="lg" variant="outline" className="border-sumi/20" asChild>
                 <a href="#path">{t.hero.ctaSecondary}</a>
