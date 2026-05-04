@@ -2,7 +2,11 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc"
 import path from "path";
 
+const githubRepoName = process.env.GITHUB_REPOSITORY?.split("/")[1];
+const base = process.env.GITHUB_ACTIONS === "true" && githubRepoName ? `/${githubRepoName}/` : "/";
+
 export default defineConfig({
+  base,
   plugins: [
     react()
   ],
