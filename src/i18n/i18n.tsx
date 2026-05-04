@@ -383,6 +383,13 @@ const zh: Dict = {
         },
       ],
     },
+    trialLinks: {
+      eyebrow: "予約 · 预约试听",
+      title: "预约免费试听",
+      subtitle: "选择下方表单提交你的预约信息，老师会尽快与你确认。",
+      openForm: "打开预约表单",
+      links: [{ label: "预约表单", url: "https://forms.gle/ADd2njCZUrYT59aH8" }],
+    },
   },
 };
 
