@@ -624,6 +624,13 @@ const en: Dict = {
         },
       ],
     },
+    trialLinks: {
+      eyebrow: "BOOKING · TRIAL",
+      title: "Book a Free Trial",
+      subtitle: "Submit your booking via the form below and I'll confirm shortly.",
+      openForm: "Open Booking Form",
+      links: [{ label: "Booking Form", url: "https://forms.gle/YNoL9PDG3oVpzxyF6" }],
+    },
   },
 };
 
