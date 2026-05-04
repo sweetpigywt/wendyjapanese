@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, BookOpen, Sparkles } from "lucide-react";
+import { ArrowLeft, BookOpen, Sparkles, ExternalLink } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/Reveal";
