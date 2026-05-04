@@ -97,6 +97,27 @@ const Index = () => {
           <Button asChild className="hidden bg-sakura text-primary-foreground hover:bg-sakura/90 md:inline-flex">
             <a href="/booking">{t.nav.trial} <ArrowRight className="ml-1 h-4 w-4" /></a>
           </Button>
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="md:hidden" aria-label="Menu">
+                <Menu className="h-5 w-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-72">
+              <nav className="mt-8 flex flex-col gap-4 text-base">
+                <a href="#about" className="transition-colors hover:text-sakura">{t.nav.about}</a>
+                <a href="#features" className="transition-colors hover:text-sakura">{t.nav.features}</a>
+                <a href="#path" className="transition-colors hover:text-sakura">{t.nav.path}</a>
+                <a href="/courses" className="transition-colors hover:text-sakura">{t.nav.courses}</a>
+                <a href="#contact" className="transition-colors hover:text-sakura">{t.nav.contact}</a>
+                <a href="/booking" className="transition-colors hover:text-sakura">{t.booking.nav}</a>
+                <a href="/payments" className="transition-colors hover:text-sakura">{t.payments.nav}</a>
+                <Button asChild className="mt-4 bg-sakura text-primary-foreground hover:bg-sakura/90">
+                  <a href="/booking">{t.nav.trial} <ArrowRight className="ml-1 h-4 w-4" /></a>
+                </Button>
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
       </header>
 
