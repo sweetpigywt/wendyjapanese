@@ -3,9 +3,6 @@ import react from "@vitejs/plugin-react-swc"
 import path from "path";
 
 export default defineConfig({
-  // 这个 base 选项能帮助浏览器在 GitHub Pages 上正确找到你的网页文件
-  base: "/wendyjapanese/",
-  
   plugins: [
     react()
   ],
