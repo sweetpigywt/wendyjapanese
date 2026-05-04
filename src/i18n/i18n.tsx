@@ -1104,18 +1104,39 @@ const detectFromBrowser = (): Lang => {
   for (const l of langs) {
     if (l.startsWith("ja")) return "ja";
     if (l.startsWith("fr")) return "fr";
-    // Only Traditional Chinese (TW / HK / MO) maps to zh per spec
-    if (l === "zh-tw" || l === "zh-hk" || l === "zh-mo" || l.startsWith("zh-hant")) return "zh";
+    if (l.startsWith("zh")) return "zh";
   }
   return "en";
 };
 
-const detectFromCountry = (country: string): Lang | null => {
+const detectFromCountry = (country: string): Lang => {
   const c = country.toUpperCase();
   if (c === "JP") return "ja";
-  if (c === "TW" || c === "HK" || c === "MO") return "zh";
+  if (c === "CN" || c === "TW" || c === "HK" || c === "MO") return "zh";
   if (c === "FR") return "fr";
   return "en";
+};
+
+// Try multiple IP geolocation providers (some are blocked in certain regions, e.g. mainland China)
+const fetchCountry = async (): Promise<string | null> => {
+  const providers: Array<{ url: string; pick: (d: any) => string | undefined }> = [
+    { url: "https://ipapi.co/json/", pick: (d) => d?.country_code || d?.country },
+    { url: "https://ipwho.is/", pick: (d) => d?.country_code },
+    { url: "https://api.country.is/", pick: (d) => d?.country },
+    { url: "https://get.geojs.io/v1/ip/country.json", pick: (d) => d?.country },
+  ];
+  for (const p of providers) {
+    try {
+      const res = await fetch(p.url, { cache: "no-store" });
+      if (!res.ok) continue;
+      const data = await res.json();
+      const c = p.pick(data);
+      if (c && typeof c === "string") return c;
+    } catch {
+      /* try next */
+    }
+  }
+  return null;
 };
 
 export const I18nProvider = ({ children }: { children: ReactNode }) => {
@@ -1127,7 +1148,7 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
   });
 
   useEffect(() => {
-    document.documentElement.lang = lang === "zh" ? "zh-TW" : lang;
+    document.documentElement.lang = lang === "zh" ? "zh-CN" : lang;
     document.title = dictionaries[lang].siteTitle;
   }, [lang]);
 
@@ -1137,19 +1158,9 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
     if (localStorage.getItem("lang")) return;
     let cancelled = false;
     (async () => {
-      try {
-        const res = await fetch("https://ipapi.co/json/", { cache: "no-store" });
-        if (!res.ok) return;
-        const data = await res.json();
-        const country: string | undefined = data?.country_code || data?.country;
-        if (!country || cancelled) return;
-        const detected = detectFromCountry(country);
-        if (detected) {
-          setLangState(detected);
-        }
-      } catch {
-        /* network blocked — keep browser-based fallback */
-      }
+      const country = await fetchCountry();
+      if (!country || cancelled) return;
+      setLangState(detectFromCountry(country));
     })();
     return () => { cancelled = true; };
   }, []);
