@@ -1106,6 +1106,16 @@ const fr: Dict = {
         },
       ],
     },
+    trialLinks: {
+      eyebrow: "RÉSERVATION · TRIAL",
+      title: "Réserver un cours d'essai gratuit",
+      subtitle: "Choisissez le formulaire correspondant à l'heure française en vigueur. Je vous confirmerai la réservation rapidement.",
+      openForm: "Ouvrir le formulaire",
+      links: [
+        { label: "Heure d'été (France)", url: "https://forms.gle/aD5HfDjbwrrqVgkY7" },
+        { label: "Heure d'hiver (France)", url: "https://forms.gle/HnwJWzQBLfTYFiQd7" },
+      ],
+    },
   },
 };
 
