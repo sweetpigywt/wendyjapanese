@@ -8,6 +8,7 @@ import { Petals } from "@/components/Petals";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 import { useI18n } from "@/i18n/i18n";
+import { CalendarClock } from "lucide-react";
 import wendyLogo from "@/assets/wendy-logo.png";
 import wechatQr from "@/assets/wechat-qr.jpg";
 import paypalQr from "@/assets/paypal-qr.png";
