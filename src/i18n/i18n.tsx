@@ -865,6 +865,13 @@ const ja: Dict = {
         },
       ],
     },
+    trialLinks: {
+      eyebrow: "予約 · TRIAL",
+      title: "無料体験レッスン予約",
+      subtitle: "下記フォームよりご予約ください。確認後、講師よりご連絡いたします。",
+      openForm: "予約フォームを開く",
+      links: [{ label: "予約フォーム", url: "https://forms.gle/pkQRebRczB4y94oe8" }],
+    },
   },
 };
 
