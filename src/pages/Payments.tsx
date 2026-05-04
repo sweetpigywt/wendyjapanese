@@ -168,6 +168,35 @@ const Payments = () => {
             {t.payments.note}
           </p>
         </Reveal>
+
+        <Reveal delay={250}>
+          <div className="mx-auto mt-16 max-w-2xl">
+            <div className="mb-8 text-center">
+              <p className="mb-3 text-xs tracking-[0.3em] text-sakura">FORM</p>
+              <h2 className="font-serif text-2xl font-black text-sumi md:text-3xl">{forms.title}</h2>
+              <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">{forms.subtitle}</p>
+            </div>
+            <div className="grid gap-4">
+              {forms.items.map((item) => (
+                <Card key={item.url} className="border-border bg-card p-5 shadow-card">
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-sakura/10 text-sakura">
+                        <CalendarClock className="h-5 w-5" strokeWidth={1.8} />
+                      </span>
+                      <span className="text-sm font-medium text-sumi">{item.label}</span>
+                    </div>
+                    <Button asChild className="bg-sakura text-primary-foreground hover:bg-sakura/90">
+                      <a href={item.url} target="_blank" rel="noreferrer">
+                        <ExternalLink className="mr-1 h-4 w-4" /> Open Form
+                      </a>
+                    </Button>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </Reveal>
       </section>
 
       <footer className="relative z-10 border-t border-border/60 py-10">
