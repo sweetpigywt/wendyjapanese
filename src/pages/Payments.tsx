@@ -26,8 +26,35 @@ const paypayQrSrc = `https://api.qrserver.com/v1/create-qr-code/?size=320x320&ma
 )}`;
 
 const Payments = () => {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const [copied, setCopied] = useState<string | null>(null);
+
+  const formsContent: Record<string, { title: string; subtitle: string; items: { label: string; url: string }[] }> = {
+    zh: {
+      title: "课程预约表单",
+      subtitle: "完成付款后，请通过以下表单提交你的预约信息。",
+      items: [{ label: "中文学员预约表单", url: "https://forms.gle/ADd2njCZUrYT59aH8" }],
+    },
+    en: {
+      title: "Booking Form",
+      subtitle: "After payment, please submit your booking via the form below.",
+      items: [{ label: "English Booking Form", url: "https://forms.gle/YNoL9PDG3oVpzxyF6" }],
+    },
+    ja: {
+      title: "予約フォーム",
+      subtitle: "お支払い後、以下のフォームよりご予約情報をお送りください。",
+      items: [{ label: "日本語予約フォーム", url: "https://forms.gle/pkQRebRczB4y94oe8" }],
+    },
+    fr: {
+      title: "Formulaire de réservation",
+      subtitle: "Après le paiement, veuillez soumettre votre réservation via le formulaire correspondant à votre période.",
+      items: [
+        { label: "Heure d'été (France)", url: "https://forms.gle/aD5HfDjbwrrqVgkY7" },
+        { label: "Heure d'hiver (France)", url: "https://forms.gle/HnwJWzQBLfTYFiQd7" },
+      ],
+    },
+  };
+  const forms = formsContent[lang] ?? formsContent.en;
 
   const copy = async (key: string, value: string) => {
     try {
