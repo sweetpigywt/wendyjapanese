@@ -19,9 +19,10 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter basename="/wendyjapanese/">
+        <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/wendyjapanese" element={<Index />} />
             <Route path="/payments" element={<Payments />} />
             <Route path="/booking" element={<Booking />} />
             <Route path="/courses" element={<Courses />} />
