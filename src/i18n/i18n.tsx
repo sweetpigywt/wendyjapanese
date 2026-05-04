@@ -142,6 +142,13 @@ type Dict = {
         items: { label: string; price: string; note?: string }[];
       }[];
     };
+    trialLinks: {
+      eyebrow: string;
+      title: string;
+      subtitle: string;
+      openForm: string;
+      links: { label: string; url: string }[];
+    };
   };
 };
 
