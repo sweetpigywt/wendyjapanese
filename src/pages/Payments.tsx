@@ -8,6 +8,7 @@ import { Petals } from "@/components/Petals";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 import { useI18n } from "@/i18n/i18n";
+import { CalendarClock } from "lucide-react";
 import wendyLogo from "@/assets/wendy-logo.png";
 import wechatQr from "@/assets/wechat-qr.jpg";
 import paypalQr from "@/assets/paypal-qr.png";
@@ -25,8 +26,35 @@ const paypayQrSrc = `https://api.qrserver.com/v1/create-qr-code/?size=320x320&ma
 )}`;
 
 const Payments = () => {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const [copied, setCopied] = useState<string | null>(null);
+
+  const formsContent: Record<string, { title: string; subtitle: string; items: { label: string; url: string }[] }> = {
+    zh: {
+      title: "课程预约表单",
+      subtitle: "完成付款后，请通过以下表单提交你的预约信息。",
+      items: [{ label: "中文学员预约表单", url: "https://forms.gle/ADd2njCZUrYT59aH8" }],
+    },
+    en: {
+      title: "Booking Form",
+      subtitle: "After payment, please submit your booking via the form below.",
+      items: [{ label: "English Booking Form", url: "https://forms.gle/YNoL9PDG3oVpzxyF6" }],
+    },
+    ja: {
+      title: "予約フォーム",
+      subtitle: "お支払い後、以下のフォームよりご予約情報をお送りください。",
+      items: [{ label: "日本語予約フォーム", url: "https://forms.gle/pkQRebRczB4y94oe8" }],
+    },
+    fr: {
+      title: "Formulaire de réservation",
+      subtitle: "Après le paiement, veuillez soumettre votre réservation via le formulaire correspondant à votre période.",
+      items: [
+        { label: "Heure d'été (France)", url: "https://forms.gle/aD5HfDjbwrrqVgkY7" },
+        { label: "Heure d'hiver (France)", url: "https://forms.gle/HnwJWzQBLfTYFiQd7" },
+      ],
+    },
+  };
+  const forms = formsContent[lang] ?? formsContent.en;
 
   const copy = async (key: string, value: string) => {
     try {
@@ -139,6 +167,35 @@ const Payments = () => {
           <p className="mx-auto mt-12 max-w-xl text-center text-xs text-muted-foreground">
             {t.payments.note}
           </p>
+        </Reveal>
+
+        <Reveal delay={250}>
+          <div className="mx-auto mt-16 max-w-2xl">
+            <div className="mb-8 text-center">
+              <p className="mb-3 text-xs tracking-[0.3em] text-sakura">FORM</p>
+              <h2 className="font-serif text-2xl font-black text-sumi md:text-3xl">{forms.title}</h2>
+              <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">{forms.subtitle}</p>
+            </div>
+            <div className="grid gap-4">
+              {forms.items.map((item) => (
+                <Card key={item.url} className="border-border bg-card p-5 shadow-card">
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-sakura/10 text-sakura">
+                        <CalendarClock className="h-5 w-5" strokeWidth={1.8} />
+                      </span>
+                      <span className="text-sm font-medium text-sumi">{item.label}</span>
+                    </div>
+                    <Button asChild className="bg-sakura text-primary-foreground hover:bg-sakura/90">
+                      <a href={item.url} target="_blank" rel="noreferrer">
+                        <ExternalLink className="mr-1 h-4 w-4" /> Open Form
+                      </a>
+                    </Button>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
         </Reveal>
       </section>
 
