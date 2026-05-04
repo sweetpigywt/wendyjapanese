@@ -18,7 +18,7 @@ jobs:
       - run: npm run build
         env:
           VITE_SUPABASE_URL: https://yvqeoabfitdneduszdct.supabase.co
-          VITE_SUPABASE_PUBLISHABLE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJIUzI1NiIsInJlZiI6Inl2cWVvYWJmaXRkbmVkdXN6ZGN0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc0NjkxMjYsImV4cCI6MjA5MzA0NTEyNn0.cdzzWwju9JTEV4Yij2najLLFCPdFGBMt4lOWjhVgr2A
+          VITE_SUPABASE_PUBLISHABLE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl2cWVvYWJmaXRkbmVkdXN6ZGN0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc0NjkxMjYsImV4cCI6MjA5MzA0NTEyNn0.cdzzWwju9JTEV4Yij2najLLFCPdFGBMt4lOWjhVgr2A
           VITE_SUPABASE_PROJECT_ID: yvqeoabfitdneduszdct
       - uses: actions/upload-pages-artifact@v3
         with:
