@@ -142,13 +142,6 @@ type Dict = {
         items: { label: string; price: string; note?: string }[];
       }[];
     };
-    trialLinks: {
-      eyebrow: string;
-      title: string;
-      subtitle: string;
-      openForm: string;
-      links: { label: string; url: string }[];
-    };
   };
 };
 
@@ -382,13 +375,6 @@ const zh: Dict = {
           items: [{ label: "10 次课套餐", price: "RMB 5,400" }],
         },
       ],
-    },
-    trialLinks: {
-      eyebrow: "予約 · 预约试听",
-      title: "预约免费试听",
-      subtitle: "选择下方表单提交你的预约信息，老师会尽快与你确认。",
-      openForm: "打开预约表单",
-      links: [{ label: "预约表单", url: "https://forms.gle/ADd2njCZUrYT59aH8" }],
     },
   },
 };
@@ -624,13 +610,6 @@ const en: Dict = {
         },
       ],
     },
-    trialLinks: {
-      eyebrow: "BOOKING · TRIAL",
-      title: "Book a Free Trial",
-      subtitle: "Submit your booking via the form below and I'll confirm shortly.",
-      openForm: "Open Booking Form",
-      links: [{ label: "Booking Form", url: "https://forms.gle/YNoL9PDG3oVpzxyF6" }],
-    },
   },
 };
 
@@ -865,13 +844,6 @@ const ja: Dict = {
         },
       ],
     },
-    trialLinks: {
-      eyebrow: "予約 · TRIAL",
-      title: "無料体験レッスン予約",
-      subtitle: "下記フォームよりご予約ください。確認後、講師よりご連絡いたします。",
-      openForm: "予約フォームを開く",
-      links: [{ label: "予約フォーム", url: "https://forms.gle/pkQRebRczB4y94oe8" }],
-    },
   },
 };
 
@@ -1104,16 +1076,6 @@ const fr: Dict = {
           description: "Idéal pour un suivi régulier — plus avantageux qu'à la séance.",
           items: [{ label: "Pack de 10 cours", price: "EUR 690" }],
         },
-      ],
-    },
-    trialLinks: {
-      eyebrow: "RÉSERVATION · TRIAL",
-      title: "Réserver un cours d'essai gratuit",
-      subtitle: "Choisissez le formulaire correspondant à l'heure française en vigueur. Je vous confirmerai la réservation rapidement.",
-      openForm: "Ouvrir le formulaire",
-      links: [
-        { label: "Heure d'été (France)", url: "https://forms.gle/aD5HfDjbwrrqVgkY7" },
-        { label: "Heure d'hiver (France)", url: "https://forms.gle/HnwJWzQBLfTYFiQd7" },
       ],
     },
   },

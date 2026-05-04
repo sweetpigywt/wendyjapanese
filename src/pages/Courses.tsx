@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, BookOpen, Sparkles, ExternalLink } from "lucide-react";
+import { ArrowLeft, BookOpen, Sparkles } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/Reveal";
@@ -129,27 +129,10 @@ const Courses = () => {
         </Reveal>
 
         <Reveal>
-          <div className="mt-20">
-            <div className="mb-10 text-center">
-              <p className="mb-3 text-xs tracking-[0.3em] text-sakura">{t.courses.trialLinks.eyebrow}</p>
-              <h2 className="font-serif text-3xl font-black text-sumi md:text-4xl">{t.courses.trialLinks.title}</h2>
-              <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">{t.courses.trialLinks.subtitle}</p>
-            </div>
-            <div className={`grid gap-4 ${t.courses.trialLinks.links.length > 1 ? "sm:grid-cols-2" : "sm:max-w-md sm:mx-auto"}`}>
-              {t.courses.trialLinks.links.map((l) => (
-                <Card
-                  key={l.url}
-                  className="flex items-center justify-between gap-4 border-border bg-card p-6 shadow-card transition-all hover:-translate-y-0.5 hover:border-sakura hover:shadow-soft"
-                >
-                  <div className="font-serif text-base font-bold text-sumi">{l.label}</div>
-                  <Button asChild className="bg-sakura text-primary-foreground hover:bg-sakura/90">
-                    <a href={l.url} target="_blank" rel="noreferrer">
-                      <ExternalLink className="mr-2 h-4 w-4" /> {t.courses.trialLinks.openForm}
-                    </a>
-                  </Button>
-                </Card>
-              ))}
-            </div>
+          <div className="mt-12 flex justify-center">
+            <Button asChild size="lg" className="bg-sakura text-primary-foreground hover:bg-sakura/90">
+              <Link to="/booking">{t.nav.trial} →</Link>
+            </Button>
           </div>
         </Reveal>
       </section>
